@@ -1,4 +1,4 @@
 {
     "project_name": "",
-    "project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '')|title }}"
+    "project_slug": "{{ cookiecutter.project_name|title|replace(' ', '')|replace('-', '') }}"
   }

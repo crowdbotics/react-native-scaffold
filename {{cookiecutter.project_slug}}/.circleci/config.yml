@@ -1,3 +1,4 @@
+{% raw %}
 version: 2
 jobs:
   node:
@@ -155,3 +156,4 @@ workflows:
       - ios:
           requires:
             - node
+{% endraw %}

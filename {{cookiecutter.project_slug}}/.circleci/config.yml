@@ -45,6 +45,11 @@ jobs:
       #- store_artifacts:
       #    path: test-results
 
+      - run:
+          name: Webhook Failed
+          command: bash ../.circleci/webhook_callback.sh "failed"
+          when: on_fail
+
   android:
     working_directory: ~/build/android
     docker:
@@ -78,6 +83,16 @@ jobs:
 
       - store_artifacts:
           path: test-results
+
+      - run:
+          name: Webhook Success
+          command: bash ../.circleci/webhook_callback.sh "success"
+          when: on_success
+
+      - run:
+          name: Webhook Failed
+          command: bash ../.circleci/webhook_callback.sh "failed"
+          when: on_fail
 
   ios:
     macos:
@@ -144,6 +159,16 @@ jobs:
 
       - store_artifacts:
           path: ios/test-results
+
+      - run:
+          name: Webhook Success
+          command: bash ../.circleci/webhook_callback.sh "success"
+          when: on_success
+
+      - run:
+          name: Webhook Failed
+          command: bash ../.circleci/webhook_callback.sh "failed"
+          when: on_fail
 
 workflows:
   version: 2

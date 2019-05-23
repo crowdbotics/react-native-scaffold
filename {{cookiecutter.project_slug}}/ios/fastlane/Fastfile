@@ -13,19 +13,57 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+opt_out_usage
+
 default_platform(:ios)
 
+app_name = "{{cookiecutter.project_dash_slug}}"
+base_name = "{{cookiecutter.project_slug}}"
+team_name = "Crowdbotics Corporation"
+team_id = "6YKR59QXKM"
+filename = "#{base_name}.xcodeproj"
+identifier = "com.crowdbotics.#{app_name}"
+
 platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+
   desc "Runs all the tests"
   lane :tests do
-    run_tests(project: "mobile_{{cookiecutter.project_slug}}.xcodeproj", scheme: "mobile_{{cookiecutter.project_slug}}")
+    run_tests(project: filename, scheme: base_name)
   end
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    increment_build_number(xcodeproj: "mobile_{{cookiecutter.project_slug}}.xcodeproj")
-    match(type: "appstore", readonly: is_ci)
-    build_app(scheme: "mobile_{{cookiecutter.project_slug}}")
+
+    produce(
+      app_identifier: identifier,
+      app_name: app_name,
+      team_name: team_name,
+      itc_team_name: team_name
+    )
+    increment_build_number(xcodeproj: filename)
+    update_app_identifier(
+      xcodeproj: filename,
+      plist_path: "#{base_name}/Info.plist",
+      app_identifier: identifier
+    )
+    update_project_team(path: filename, teamid: team_id)
+    match(type: "appstore", readonly: false)
+    disable_automatic_code_signing(
+      path: filename,
+      code_sign_identity: "iPhone Distribution: #{team_name} (#{team_id})"
+    )
+    settings_to_override = {
+      BUNDLE_IDENTIFIER: identifier,
+      PROVISIONING_PROFILE_SPECIFIER: "match AppStore #{identifier}"
+    }
+    build_app(
+      scheme: base_name,
+      export_method: "app-store",
+      xcargs: settings_to_override,
+    )
     upload_to_testflight
   end
 end

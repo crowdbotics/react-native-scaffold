@@ -47,7 +47,7 @@ jobs:
 
       - run:
           name: Webhook Failed
-          command: bash ../.circleci/webhook_callback.sh "failed"
+          command: bash .circleci/webhook_callback.sh "failed"
           when: on_fail
 
   android:
@@ -72,7 +72,7 @@ jobs:
             - vendor/bundle
 
       - run:
-          name: bundle exec fastlane tests
+          name: Run tests
           command: |
             mkdir -p test-results/fastlane
             bundle exec fastlane test
@@ -142,11 +142,12 @@ jobs:
             - vendor/bundle
 
       - run:
+          name: Run tests
           command: bundle exec fastlane tests
           working_directory: ios
 
       - run:
-          name: set up test results
+          name: Set up test results
           working_directory: ios
           when: always
           command: |
@@ -162,12 +163,12 @@ jobs:
 
       - run:
           name: Webhook Success
-          command: bash ../.circleci/webhook_callback.sh "success"
+          command: bash .circleci/webhook_callback.sh "success"
           when: on_success
 
       - run:
           name: Webhook Failed
-          command: bash ../.circleci/webhook_callback.sh "failed"
+          command: bash .circleci/webhook_callback.sh "failed"
           when: on_fail
 
 workflows:

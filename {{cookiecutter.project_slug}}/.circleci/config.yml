@@ -103,6 +103,10 @@ jobs:
     shell: /bin/bash --login -o pipefail
 
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "{{cookiecutter.ssh_key_fingerprint}}"
+
       - checkout
 
       - run:
@@ -160,6 +164,11 @@ jobs:
 
       - store_artifacts:
           path: ios/test-results
+
+      - run:
+          name: Build and upload to testflight
+          command: bundle exec fastlane beta
+          working_directory: ios
 
       - run:
           name: Webhook Success

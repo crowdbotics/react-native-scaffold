@@ -64,6 +64,6 @@ platform :ios do
       export_method: "app-store",
       xcargs: settings_to_override,
     )
-    upload_to_testflight
+    upload_to_testflight(email: "{{cookiecutter.owner_email}}")
   end
 end

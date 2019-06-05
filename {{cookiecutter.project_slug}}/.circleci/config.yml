@@ -105,8 +105,9 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
+{% endraw %}
             - "{{ cookiecutter.ssh_key_fingerprint }}"
-
+{% raw %}
       - checkout
 
       - run:

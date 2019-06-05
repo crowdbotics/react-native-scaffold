@@ -105,7 +105,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "{{cookiecutter.ssh_key_fingerprint}}"
+            - "{{ cookiecutter.ssh_key_fingerprint }}"
 
       - checkout
 

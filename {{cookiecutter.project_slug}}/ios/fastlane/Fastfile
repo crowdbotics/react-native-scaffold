@@ -64,6 +64,9 @@ platform :ios do
       export_method: "app-store",
       xcargs: settings_to_override,
     )
-    upload_to_testflight(email: "{{cookiecutter.owner_email}}")
+    upload_to_testflight(
+      email: "{{cookiecutter.owner_email}}",
+      beta_app_description: "Beta version of #{app_name} uploaded by Crowdbotics"
+    )
   end
 end

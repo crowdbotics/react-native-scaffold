@@ -1,4 +1,5 @@
 {
+    "project_name": "",
     "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '')|replace('-', '_') }}",
     "project_dash_slug": "{{ cookiecutter.project_slug|replace('_', '-') }}",
     "owner_email": "{{ cookiecutter.owner_email }}",

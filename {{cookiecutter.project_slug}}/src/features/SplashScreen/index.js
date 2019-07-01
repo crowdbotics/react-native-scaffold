@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  mainText: { fontSize: 20 },
+  mainText: { fontSize: 20, fontFamily: "Roboto-Medium" },
   item: {
     borderBottomWidth: 1,
     marginTop: 20,

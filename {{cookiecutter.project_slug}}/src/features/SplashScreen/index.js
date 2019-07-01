@@ -3,8 +3,13 @@ import { StyleSheet, Image, ScrollView, Alert } from "react-native";
 import { Text, Layout, Button } from "react-native-ui-kitten";
 import LogoIcon from "../../assets/images/backgroundLoginV1.png";
 import { installed_blueprints } from "../../config/installed_blueprints";
+import { store } from "../../redux/store";
 
 export default class App extends Component {
+  componentDidMount() {
+    store.dispatch({ type: "TEST/ALO" });
+  }
+
   renderItem(item) {
     return installed_blueprints.map(item => {
       if (item.hasOwnProperty("access_route")) {

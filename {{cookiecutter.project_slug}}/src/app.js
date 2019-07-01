@@ -6,6 +6,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import SplashScreen from "./features/SplashScreen";
 import { styles } from "./app.styles";
 import { store } from "./redux/store";
+import NavigatorProvider from "./navigator/mainNavigator";
 
 export default class App extends React.Component {
   state = {
@@ -30,9 +31,11 @@ export default class App extends React.Component {
   renderApp = () => (
     <ReduxProvider store={store}>
       <ApplicationProvider mapping={mapping} theme={light}>
-        <Layout style={[styles.flex]}>
-          <SplashScreen />
-        </Layout>
+        <NavigatorProvider style={[styles.flex]}>
+          <Layout style={[styles.flex]}>
+            <SplashScreen />
+          </Layout>
+        </NavigatorProvider>
       </ApplicationProvider>
     </ReduxProvider>
   );

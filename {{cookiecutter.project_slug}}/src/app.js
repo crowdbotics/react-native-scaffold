@@ -1,8 +1,11 @@
 import React from "react";
 import { mapping, light } from "@eva-design/eva";
 import { ApplicationProvider, Layout, Text } from "react-native-ui-kitten";
+import { Provider as ReduxProvider } from "react-redux";
+
 import SplashScreen from "./features/SplashScreen";
 import { styles } from "./app.styles";
+import { store } from "./redux/store";
 
 export default class App extends React.Component {
   state = {
@@ -25,11 +28,13 @@ export default class App extends React.Component {
   );
 
   renderApp = () => (
-    <ApplicationProvider mapping={mapping} theme={light}>
-      <Layout style={[styles.flex]}>
-        <SplashScreen />
-      </Layout>
-    </ApplicationProvider>
+    <ReduxProvider store={store}>
+      <ApplicationProvider mapping={mapping} theme={light}>
+        <Layout style={[styles.flex]}>
+          <SplashScreen />
+        </Layout>
+      </ApplicationProvider>
+    </ReduxProvider>
   );
 
   render = () =>

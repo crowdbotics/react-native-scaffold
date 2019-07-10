@@ -1,5 +1,5 @@
 import React from "react";
-import { mapping, light } from "@eva-design/eva";
+import { mapping, dark } from "@eva-design/eva";
 import { ApplicationProvider, Layout, Text } from "react-native-ui-kitten";
 import { Provider as ReduxProvider } from "react-redux";
 
@@ -7,14 +7,21 @@ import SplashScreen from "./features/SplashScreen";
 import { styles } from "./app.styles";
 import { store } from "./redux/store";
 import NavigatorProvider from "./navigator/mainNavigator";
+import { setupHttpConfig } from "./utils/http";
+import { crowdboticsTheme } from "./config/crowdboticsTheme";
 
 export default class App extends React.Component {
   state = {
     isLoaded: false
   };
 
-  componentWillMount() {
-    this.loadAssets();
+  async componentWillMount() {
+    /**
+     * add any aditional app config here,
+     * don't use blocking requests here like HTTP requests since they block UI feedbac
+     */
+    await this.loadAssets();
+    setupHttpConfig();
   }
 
   loadAssets = async () => {
@@ -30,7 +37,7 @@ export default class App extends React.Component {
 
   renderApp = () => (
     <ReduxProvider store={store}>
-      <ApplicationProvider mapping={mapping} theme={light}>
+      <ApplicationProvider mapping={mapping} theme={crowdboticsTheme}>
         <NavigatorProvider style={[styles.flex]}>
           <Layout style={[styles.flex]}>
             <SplashScreen />

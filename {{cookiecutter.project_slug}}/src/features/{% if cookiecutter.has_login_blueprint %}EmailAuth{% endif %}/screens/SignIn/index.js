@@ -1,29 +1,33 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Image, Dimensions, StyleSheet } from "react-native";
 import { Text, Layout, Button, Input } from "react-native-ui-kitten";
 
 import { scaleModerate, scaleVertical } from "../../../../utils/scale";
 import { styles } from "./styles";
-
-export default class SignIn extends Component {
+import * as emailAuthActions from "../../redux/actions";
+import ErrorBox from "../../../../components/ErrorBox";
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
-      errors: { email: "", password: "" }
+      validationErrors: {}
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.goToPasswordRecover = this.goToPasswordRecover.bind(this);
+    this.goToSignUp = this.goToSignUp.bind(this);
+    this.submitLogin = this.submitLogin.bind(this);
   }
 
   renderImage = () => {
     const screenSize = Dimensions.get("window");
     const imageSize = {
       width: screenSize.width,
-      height: screenSize.height - scaleModerate(375, 1)
+      height: screenSize.height - scaleModerate(500, 1)
     };
     return (
       <Image
@@ -33,25 +37,31 @@ export default class SignIn extends Component {
     );
   };
 
-  handleEmailChange(event) {
-    const {
-      target: { value }
-    } = event;
-    this.setState({ email: value });
-
+  handleEmailChange(email) {
+    this.setState({ email });
     // todo add email validation
   }
 
-  handlePasswordChange(event) {
-    const {
-      target: { value }
-    } = event;
-    this.setState({ password: value });
+  handlePasswordChange(password) {
+    this.setState({ password });
     // todo change keyboard and add validation
   }
 
+  renderErrors() {
+    const { signInErrors } = this.props;
+    if (signInErrors) {
+      return <ErrorBox errorText={signInErrors} />;
+    }
+  }
+
   submitLogin() {
-    // todo redux thunk action
+    const {
+      actions: { login }
+    } = this.props;
+
+    const { email, password } = this.state;
+    // todo add disable buttons on submit
+    login({ email, password });
   }
 
   goToPasswordRecover() {
@@ -66,23 +76,26 @@ export default class SignIn extends Component {
 
   render() {
     const { email, password } = this.state;
+    const { errors } = this.props;
 
     return (
       <Layout style={styles.screen}>
         {this.renderImage()}
         <Input
           value={email}
-          onChange={this.handleEmailChange}
+          onChangeText={this.handleEmailChange}
           placeholder="Email"
           size="large"
           style={styles.input}
+          keyboardType="email-address"
         />
         <Input
           value={password}
-          onChange={this.handlePasswordChange}
+          onChangeText={this.handlePasswordChange}
           placeholder="Password"
           size="large"
           style={styles.input}
+          secureTextEntry={true}
         />
 
         <Text style={styles.textRow} onPress={this.goToPasswordRecover}>
@@ -98,7 +111,26 @@ export default class SignIn extends Component {
         <Button style={styles.input} onPress={this.goToSignUp}>
           Sign up
         </Button>
+
+        {this.renderErrors()}
       </Layout>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  signInErrors: state.EmailAuth.errors.SignIn
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    login: ({ email, password }) => {
+      dispatch(emailAuthActions.login({ email, password }));
+    }
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);

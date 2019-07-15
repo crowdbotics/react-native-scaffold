@@ -1,4 +1,6 @@
 export const appConfig = {
-  apiEndPoint: process.env.API_ENDPOINT || "http://localhost:8000",
+  // todo add library to handle env variables
+  emailAuthAPIEndPoint:
+    process.env.EMAIL_AUTH_API_ENDPOINT || "http://localhost:8000",
   defaultTimeout: 5000
 };

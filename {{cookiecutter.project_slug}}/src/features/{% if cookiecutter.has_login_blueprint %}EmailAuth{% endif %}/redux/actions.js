@@ -5,7 +5,11 @@ export const signUp = user => ({
   user
 });
 
-export const signIn = user => ({
+export const login = user => ({
   type: actions.EMAIL_AUTH_LOGIN_REQUEST,
   user
+});
+
+export const logout = _ => ({
+  type: actions.EMAIL_AUTH_LOGOUT
 });

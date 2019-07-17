@@ -11,9 +11,8 @@ export default function ConfirmationRequired(props) {
   return (
     <Layout style={styles.screen}>
       <Text style={styles.textRow}>
-        We have sent an email with a confirmation link to your email address. In
-        order to complete the sign-up process, please click the confirmation
-        link.
+        We have sent a confirmation link to your email address. In order
+        continue, please click the confirmation link.
       </Text>
       <Button onPress={handleOnPress}>Return to blueprints</Button>
     </Layout>

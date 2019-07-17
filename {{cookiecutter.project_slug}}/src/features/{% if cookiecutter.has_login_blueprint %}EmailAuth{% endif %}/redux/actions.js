@@ -13,3 +13,8 @@ export const login = user => ({
 export const logout = _ => ({
   type: actions.EMAIL_AUTH_LOGOUT
 });
+
+export const resetPassword = email => ({
+  type: actions.EMAIL_AUTH_PASSWORD_RECOVER_REQUEST,
+  email
+});

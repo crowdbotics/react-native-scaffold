@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import { Image, Dimensions, StyleSheet } from "react-native";
-import { Text, Layout, Button, Input } from "react-native-ui-kitten";
+import { connect } from "react-redux";
+import { Image, Dimensions } from "react-native";
+import { Layout, Button, Input } from "react-native-ui-kitten";
 
-import { scaleModerate, scaleVertical } from "../../../../utils/scale";
+import { scaleModerate } from "../../../../utils/scale";
 import { styles } from "./styles";
+import * as emailAuthActions from "../../redux/actions";
+import ErrorBox from "../../../../components/ErrorBox";
 
-export default class Passwo extends Component {
+class PasswordRecover extends Component {
   static navigationOptions = {
     headerMode: "none"
   };
@@ -14,9 +17,12 @@ export default class Passwo extends Component {
     super(props);
     this.state = {
       email: "",
-      password: "",
-      errors: { email: "", password: "" }
+      errors: { email: "" }
     };
+
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.submitPasswordReset = this.submitPasswordReset.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   renderImage = () => {
@@ -33,45 +39,64 @@ export default class Passwo extends Component {
     );
   };
 
-  handleEmailChange(event) {
-    const {
-      target: { value }
-    } = event;
-    this.setState({ email: value });
-
-    // todo add email validation
+  handleEmailChange(email) {
+    this.setState({ email });
   }
 
-  handlePasswordChange(event) {
-    const {
-      target: { value }
-    } = event;
-    this.setState({ password: value });
-    // todo change keyboard and add validation
+  renderErrors() {
+    const { recoverPasswordErrors } = this.props;
+    if (recoverPasswordErrors) {
+      return <ErrorBox errorText={recoverPasswordErrors} />;
+    }
   }
 
-  submitLogin() {
-    // todo redux thunk action
+  submitPasswordReset() {
+    const {
+      actions: { recoverPassword }
+    } = this.props;
+
+    const { email } = this.state;
+
+    recoverPassword(email);
   }
 
   render() {
-    const { email, password } = this.state;
+    const { email } = this.state;
 
     return (
       <Layout style={styles.screen}>
         {this.renderImage()}
         <Input
           value={email}
-          onChange={this.handleEmailChange}
+          onChangeText={this.handleEmailChange}
           placeholder="Email"
           size="large"
           style={styles.input}
         />
 
-        <Button style={styles.input} onPress={this.submitLogin}>
-          Login
+        <Button style={styles.input} onPress={this.submitPasswordReset}>
+          Reset Password
         </Button>
+
+        {this.renderErrors()}
       </Layout>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  recoverPasswordErrors: state.EmailAuth.errors.PasswordRecover
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    recoverPassword: email => {
+      dispatch(emailAuthActions.resetPassword(email));
+    }
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PasswordRecover);

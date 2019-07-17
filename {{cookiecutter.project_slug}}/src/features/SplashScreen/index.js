@@ -11,14 +11,16 @@ export default class App extends Component {
   }
 
   renderItem(item) {
+    const {
+      navigation: { navigate }
+    } = this.props;
+
     return installed_blueprints.map(item => {
       if (item.hasOwnProperty("access_route")) {
         return (
           <Button
-            key={`${item}-button`}
-            onPress={_ => {
-              // todo add redirection
-            }}
+            key={`${item.name}--blueprint-button`}
+            onPress={_ => navigate("EmailAuth")}
             style={styles.item}
           >
             {item.human_name}

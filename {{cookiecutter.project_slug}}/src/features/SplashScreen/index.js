@@ -20,7 +20,7 @@ export default class App extends Component {
         return (
           <Button
             key={`${item.name}--blueprint-button`}
-            onPress={_ => navigate("EmailAuth")}
+            onPress={_ => navigate(item.access_route)}
             style={styles.item}
           >
             {item.human_name}

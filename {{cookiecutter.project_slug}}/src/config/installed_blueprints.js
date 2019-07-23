@@ -7,5 +7,11 @@ export const installed_blueprints = [
     name: "EmailAuth",
     human_name: "EmailAuth",
     access_route: "EmailAuth"
-  }
+  },
+  {
+    name: "MapsScreen",
+    human_name: "MapsScreen",
+    access_route: "MapsScreen"
+  },
+
 ];

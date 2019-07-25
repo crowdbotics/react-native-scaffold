@@ -6,7 +6,7 @@ target '{{cookiecutter.project_slug}}' do
   rn_maps_path = '../node_modules/react-native-maps'
 
   # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies
-  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+  # Base dependencies, don't modify this unless you know what you are doing
   pod 'React', path: rn_path, subspecs: [
     'Core',
     'CxxBridge',
@@ -24,14 +24,12 @@ target '{{cookiecutter.project_slug}}' do
   ]
 
   # React Native third party dependencies podspecs
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
   pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
   pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"
-  # If you are using React Native <0.54, you will get the following error:
-  # "The name of the given podspec `GLog` doesn't match the expected one `glog`"
-  # Use the following line instead:
-  #pod 'GLog', :podspec => "#{rn_path}/third-party-podspecs/GLog.podspec"
   pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
 
+  # Add aditional dependencies here
   {% if cookiecutter.has_maps_blueprint == "True" %}
   # react-native-maps dependencies
   pod 'react-native-maps', path: rn_maps_path
@@ -46,11 +44,17 @@ end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
+
+    # Add your custom iterators here
+
+    {% if cookiecutter.has_maps_blueprint == "True" %}
     if target.name == 'react-native-google-maps'
       target.build_configurations.each do |config|
         config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
       end
     end
+    {% endif %}
+
     if target.name == "React"
       target.remove_from_project
     end

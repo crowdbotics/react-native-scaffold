@@ -16,7 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-  {% if cookiecutter.has_maps_blueprint == "True" %}[GMSServices provideAPIKey:@"AIzaSyB3KpTdPxZeYhdLtyxZSmXxZhowxqVWoyk"];{% endif %}
+  {% if cookiecutter.has_maps_blueprint == "True" %}[GMSServices provideAPIKey:@"AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"];{% endif %}
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge

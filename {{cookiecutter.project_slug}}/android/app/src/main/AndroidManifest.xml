@@ -11,7 +11,7 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme">
 
-      {% if cookiecutter.has_maps_blueprint == "True" %}
+      {% if cookiecutter.has_maps_blueprint == "y" %}
       <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"/>

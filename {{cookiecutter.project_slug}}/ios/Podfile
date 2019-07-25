@@ -30,7 +30,7 @@ target '{{cookiecutter.project_slug}}' do
   pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
 
   # Add aditional dependencies here
-  {% if cookiecutter.has_maps_blueprint == "True" %}
+  {% if cookiecutter.has_maps_blueprint == "y" %}
   # react-native-maps dependencies
   pod 'react-native-maps', path: rn_maps_path
   pod 'react-native-google-maps', path: rn_maps_path  # Uncomment this line if you want to support GoogleMaps on iOS
@@ -47,7 +47,7 @@ post_install do |installer|
 
     # Add your custom iterators here
 
-    {% if cookiecutter.has_maps_blueprint == "True" %}
+    {% if cookiecutter.has_maps_blueprint == "y" %}
     if target.name == 'react-native-google-maps'
       target.build_configurations.each do |config|
         config.build_settings['CLANG_ENABLE_MODULES'] = 'No'

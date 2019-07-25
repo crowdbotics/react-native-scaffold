@@ -9,14 +9,14 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-{% if cookiecutter.has_maps_blueprint == "True" %}#import <GoogleMaps/GoogleMaps.h>{% endif %}
+{% if cookiecutter.has_maps_blueprint == "y" %}#import <GoogleMaps/GoogleMaps.h>{% endif %}
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-  {% if cookiecutter.has_maps_blueprint == "True" %}[GMSServices provideAPIKey:@"AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"];{% endif %}
+  {% if cookiecutter.has_maps_blueprint == "y" %}[GMSServices provideAPIKey:@"AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"];{% endif %}
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge

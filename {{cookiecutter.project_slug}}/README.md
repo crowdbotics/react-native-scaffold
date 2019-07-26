@@ -100,3 +100,9 @@ As soon as the project is created, you need to run:
 
 `npm install react-native-maps --save-exact`
 `yarn add react-native-maps -E`
+
+###Camera
+
+Do:
+
+`npm install react-native-camera --save`

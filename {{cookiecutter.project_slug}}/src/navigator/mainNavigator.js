@@ -23,6 +23,11 @@ const AppNavigator = createStackNavigator(
       screen: GoogleMapsNavigator
     },
     {% endif %}
+    {% if cookiecutter.has_camera_blueprint == "y" %}
+    CameraScreen: {
+      screen: CameraNavigator
+    },
+    {% endif %}
     /** new navigators can be added here */
   },
   {

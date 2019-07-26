@@ -1,4 +1,8 @@
 rootProject.name = '{{cookiecutter.project_slug}}'
+{% if cookiecutter.has_calendar_blueprint == "True" %}
+include ':react-native-google-signin'
+project(':react-native-google-signin').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-google-signin/android')
+{% endif %}
 include ':react-native-gesture-handler'
 project(':react-native-gesture-handler').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-gesture-handler/android')
 

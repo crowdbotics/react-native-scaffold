@@ -26,8 +26,7 @@ target '{{cookiecutter.project_slug}}' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # Add aditional dependencies here
-  
-  {% if cookiecutter.has_maps_blueprint == "y" %}
+   {% if cookiecutter.has_maps_blueprint == "y" %}
   # react-native-maps dependencies
   pod 'react-native-maps', path: '../node_modules/react-native-maps'
   pod 'react-native-google-maps', '../node_modules/react-native-maps'
@@ -35,7 +34,15 @@ target '{{cookiecutter.project_slug}}' do
   pod 'Google-Maps-iOS-Utils'
   {% endif %}
 
-end
+  {% if cookiecutter.has_calendar_blueprint == "True" %}
+    # Calendar blueprint dependencies
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+  pod 'GoogleSignIn', '~> 4.4.0'
+  {% endif %}
+
+
+  end
+
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

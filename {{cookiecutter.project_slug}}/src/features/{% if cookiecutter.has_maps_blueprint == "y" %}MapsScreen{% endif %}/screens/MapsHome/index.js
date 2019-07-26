@@ -1,24 +1,16 @@
 import React, { Component } from "react";
 import { StyleSheet, Image, View, Alert, } from "react-native";
-import { Text, Layout, Button } from "react-native-ui-kitten";
+import { Text, Input } from "react-native-ui-kitten";
 
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import SearchBar from "../../../../components/SearchBar";
-
 
 export default class MapsScreen extends Component {
 
-  constructor() {
-    state = {
-      inputValue: '',
-    };
+  constructor(props) {
+    super(props);
   }
 
-  onInputValueChange = (inputValue: string) => {
-    this.setState({ inputValue });
-  };
-
-  initialRegion: {
+  region: { //customize where you want the maps to start
       latitude: 37.78825,
       longitude: -122.4324,
       latitudeDelta: 0.0922,
@@ -26,20 +18,17 @@ export default class MapsScreen extends Component {
   };
 
   render() {
-    const { searchCoords } = this.state;
-
     return [
       <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.map}
-        region={ initialRegion }
+        initialRegion={ this.region }
       >
       </MapView>,
 
       <Input
-        value={this.state.inputValue}
-        onChangeText={this.onInputValueChange}
-        style={styles.Mapscontainer}
+        style={styles.searchbar}
+        placeholder='Search...'
       />
     ];
   }
@@ -56,4 +45,10 @@ const styles = StyleSheet.create({
  map: {
    ...StyleSheet.absoluteFillObject,
  },
+ searchbar: {
+    padding: 10,
+    margin: 10,
+    justifyContent: "center",
+    alignItems: "flex-start"
+  },
 });

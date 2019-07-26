@@ -6,6 +6,16 @@ After cloning this repo, you will need to install the dependencies:
 
 `yarn install`
 
+Then, you need to install the Podfile:
+
+`cd ios`
+
+`pod install`
+
+After the installation is complete, go back to the main directory by running:
+
+`cd -`
+
 ## Installing all dependencies in for development
 Please follow this guide and install the correct dependencies for your current OS and the OS that you want to build (iOS or Android)
 
@@ -81,3 +91,12 @@ exec fastlane match development` from `ios/`.
 Not a CB developer? Create an [Apple developer](https://developer.apple.com)
 and follow the instructions on [codesigning guide](https://codesigning.guide/)
 to setup your certificates.
+
+##Blueprints
+
+###Google Maps API
+
+As soon as the project is created, you need to run:
+
+`npm install react-native-maps --save-exact`
+`yarn add react-native-maps -E`

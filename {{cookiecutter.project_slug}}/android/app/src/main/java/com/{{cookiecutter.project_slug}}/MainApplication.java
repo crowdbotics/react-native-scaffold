@@ -3,7 +3,7 @@ package com.{{cookiecutter.project_slug}};
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-{% if cookiecutter.has_calendar_blueprint == "True" %}import co.apptailor.googlesignin.RNGoogleSigninPackage;{% endif %}
+{% if cookiecutter.has_calendar_blueprint == "y" %}import co.apptailor.googlesignin.RNGoogleSigninPackage;{% endif %}
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;

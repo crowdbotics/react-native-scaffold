@@ -8,13 +8,6 @@ import * as actions from "../../redux/actions";
 import { styles } from "./styles";
 
 class CalendarView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: {}
-    };
-  }
-
   componentDidMount() {
     const { actions } = this.props;
     actions.getEventsFromGoogleCalendar();

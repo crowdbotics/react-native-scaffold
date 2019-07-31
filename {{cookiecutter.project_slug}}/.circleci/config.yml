@@ -151,7 +151,8 @@ jobs:
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
             bundle exec pod install
-       - save_cache:
+
+      - save_cache:
           key: 1-pods-{{ checksum "Podfile.lock" }}
           paths:
             - ios/Pods

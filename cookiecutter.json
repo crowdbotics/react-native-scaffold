@@ -6,5 +6,6 @@
   "ssh_key_fingerprint": "{{ cookiecutter.ssh_key_fingerprint }}",
   "has_login_blueprint": "True",
   "has_maps_blueprint": "y",
-  "has_calendar_blueprint": "y"
+  "has_calendar_blueprint": "y",
+  "has_tutorial_blueprint": "y"
 }

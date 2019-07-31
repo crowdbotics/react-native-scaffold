@@ -11,7 +11,7 @@ import { setupHttpConfig } from "./utils/http";
 import { crowdboticsTheme } from "./config/crowdboticsTheme";
 import * as NavigationService from "./navigator/NavigationService";
 import firebase from "react-native-firebase";
-
+import {checkPermission} from '../src/utils/push'
 export default class App extends React.Component {
   state = {
     isLoaded: false
@@ -36,7 +36,7 @@ export default class App extends React.Component {
      */
     NavigationService.setNavigator(this.navigator);
 
-    this.checkPermission();
+    checkPermission();
     this.createNotificationListeners();
   }
 
@@ -51,39 +51,7 @@ export default class App extends React.Component {
     </Layout>
   );
 
-  //1
-  async checkPermission() {
-    const enabled = await firebase.messaging().hasPermission();
-    if (enabled) {
-      this.getToken();
-    } else {
-      this.requestPermission();
-    }
-  }
-
-  //3
-  async getToken() {
-    let fcmToken = await AsyncStorage.getItem("fcmToken");
-    if (!fcmToken) {
-      fcmToken = await firebase.messaging().getToken();
-      if (fcmToken) {
-        // user has a device token
-        await AsyncStorage.setItem("fcmToken", fcmToken);
-      }
-    }
-  }
-
-  //2
-  async requestPermission() {
-    try {
-      await firebase.messaging().requestPermission();
-      // User has authorised
-      this.getToken();
-    } catch (error) {
-      // User has rejected permissions
-      console.log("permission rejected");
-    }
-  }
+  
 
   async createNotificationListeners() {
     /*
@@ -93,6 +61,7 @@ export default class App extends React.Component {
       .notifications()
       .onNotification(notification => {
         const { title, body } = notification;
+        // you can change how to show notification
         this.showAlert(title, body);
       });
 
@@ -103,6 +72,7 @@ export default class App extends React.Component {
       .notifications()
       .onNotificationOpened(notificationOpen => {
         const { title, body } = notificationOpen.notification;
+        // you can change how to show notification
         this.showAlert(title, body);
       });
 
@@ -114,6 +84,7 @@ export default class App extends React.Component {
       .getInitialNotification();
     if (notificationOpen) {
       const { title, body } = notificationOpen.notification;
+      // you can change how to show notification
       this.showAlert(title, body);
     }
     /*

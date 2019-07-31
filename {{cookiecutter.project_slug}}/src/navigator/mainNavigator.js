@@ -25,7 +25,7 @@ const AppNavigator = createStackNavigator(
     },
     {% endif %}
     {% if cookiecutter.has_camera_blueprint == "y" %}
-    CameraScreen: {
+    UserCamera: {
       screen: CameraNavigator
     },
     {% endif %}

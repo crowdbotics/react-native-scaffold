@@ -13,6 +13,11 @@ export const installed_blueprints = [
     human_name: "MapsScreen",
     access_route: "MapsScreen"
   },
+  {
+    name: "Camera",
+    human_name: "Camera",
+    access_route: "UserCamera"
+  },
 
   // you can add more installed blueprints here
   // access route is the route nate given to navigator

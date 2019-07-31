@@ -106,3 +106,19 @@ As soon as the project is created, you need to run:
 Do:
 
 `npm install react-native-camera --save`
+
+##TroubleShooting
+
+###Module "redux" does not exist in the haste module map.
+
+Run the following:
+
+`watchman watch-del-all`
+`rm -rf node_modules && npm install`
+`rm -rf /tmp/metro-bundler-cache-*` or `npm start -- --reset-cache`
+`rm -rf /tmp/haste-map-react-native-packager-*`
+
+Reset the simulator(s), then run:
+
+`npm install`
+`npm install --save redux`

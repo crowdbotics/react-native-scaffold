@@ -1,5 +1,5 @@
 rootProject.name = '{{cookiecutter.project_slug}}'
-{% if cookiecutter.has_calendar_blueprint == "True" %}
+{% if cookiecutter.has_calendar_blueprint == "y" %}
 include ':react-native-google-signin'
 project(':react-native-google-signin').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-google-signin/android')
 {% endif %}

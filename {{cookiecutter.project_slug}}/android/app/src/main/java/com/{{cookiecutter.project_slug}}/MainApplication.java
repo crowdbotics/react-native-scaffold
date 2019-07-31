@@ -25,7 +25,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            {% if cookiecutter.has_calendar_blueprint == "True" %}new RNGoogleSigninPackage(),{% endif %}
+            {% if cookiecutter.has_calendar_blueprint == "y" %}new RNGoogleSigninPackage(),{% endif %}
             new RNGestureHandlerPackage()
       );
     }

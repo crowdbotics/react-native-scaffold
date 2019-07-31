@@ -16,5 +16,4 @@ export const installed_blueprints = [
 
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
-
 ];

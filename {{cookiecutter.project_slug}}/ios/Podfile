@@ -2,12 +2,10 @@
 # platform :ios, '9.0'
 
 target '{{cookiecutter.project_slug}}' do
-  rn_path = '../node_modules/react-native'
-  rn_maps_path = '../node_modules/react-native-maps'
 
-  # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies
+  # Pods for {{cookiecutter.project_slug}}
   # Base dependencies, don't modify this unless you know what you are doing
-  pod 'React', path: rn_path, subspecs: [
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'CxxBridge',
     'DevSupport',
@@ -22,23 +20,12 @@ target '{{cookiecutter.project_slug}}' do
     'RCTVibration',
     'RCTWebSocket',
   ]
-
-  # React Native third party dependencies podspecs
-  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
-  pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
-  pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"
-  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # Add aditional dependencies here
-  {% if cookiecutter.has_maps_blueprint == "y" %}
-  # react-native-maps dependencies
-  pod 'react-native-maps', path: rn_maps_path
-  pod 'react-native-google-maps', path: rn_maps_path  # Uncomment this line if you want to support GoogleMaps on iOS
-  pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
-  pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-  {% endif %}
-
 
 end
 
@@ -47,14 +34,11 @@ post_install do |installer|
 
     # Add your custom iterators here
 
-    {% if cookiecutter.has_maps_blueprint == "y" %}
-    if target.name == 'react-native-google-maps'
-      target.build_configurations.each do |config|
-        config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
-      end
-    end
-    {% endif %}
-
+    # if target.name == 'react-native-google-maps'
+    #   target.build_configurations.each do |config|
+    #     config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+    #   end
+    # end
     if target.name == "React"
       target.remove_from_project
     end

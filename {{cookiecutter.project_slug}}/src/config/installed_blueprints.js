@@ -7,7 +7,13 @@ export const installed_blueprints = [
     name: "EmailAuth",
     human_name: "EmailAuth",
     access_route: "EmailAuth"
-  }
+  },
+  {
+    name: "Google Maps",
+    human_name: "Google Maps",
+    access_route: "MapsScreen"
+  },
+
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
 ];

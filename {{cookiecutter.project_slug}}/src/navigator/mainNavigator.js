@@ -3,7 +3,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import SplashScreen from "../features/SplashScreen";
 
 {% if cookiecutter.has_login_blueprint %}import { EmailAuthNavigator } from "../features/EmailAuth/navigator";{% endif %}
-
+{% if cookiecutter.has_maps_blueprint == "y" %}import { GoogleMapsNavigator } from "../features/MapsScreen/navigator";{% endif %}
 /**
  * new navigators can be imported here
  */
@@ -16,7 +16,12 @@ const AppNavigator = createStackNavigator(
     {% if cookiecutter.has_login_blueprint %}
     EmailAuth: {
       screen: EmailAuthNavigator
-    }
+    },
+    {% endif %}
+    {% if cookiecutter.has_maps_blueprint == "y" %}
+    MapsScreen: {
+      screen: GoogleMapsNavigator
+    },
     {% endif %}
     /** new navigators can be added here */
   },

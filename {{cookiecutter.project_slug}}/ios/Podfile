@@ -26,14 +26,19 @@ target '{{cookiecutter.project_slug}}' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # Add aditional dependencies here
-  
+
   {% if cookiecutter.has_maps_blueprint == "y" %}
   # react-native-maps dependencies
   pod 'react-native-maps', path: rn_maps_path
-  pod 'react-native-google-maps', path: rn_maps_path  
+  pod 'react-native-google-maps', path: rn_maps_path
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
   {% endif %}
+
+  {% if cookiecutter.has_camera_blueprint == "y" %}
+  pod 'react-native-camera', path: '../node_modules/react-native-camera'
+  {% endif %}
+
 
 end
 

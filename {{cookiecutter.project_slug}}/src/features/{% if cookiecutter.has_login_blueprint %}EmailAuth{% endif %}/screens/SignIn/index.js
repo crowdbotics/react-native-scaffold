@@ -102,13 +102,13 @@ class SignIn extends Component {
           I forgot my password
         </Text>
 
-        <Button style={styles.input} onPress={this.submitLogin}>
+        <Button style={styles.button} onPress={this.submitLogin}>
           Login
         </Button>
 
         <Text style={styles.textRow}>or</Text>
 
-        <Button style={styles.input} onPress={this.goToSignUp}>
+        <Button style={styles.button} onPress={this.goToSignUp}>
           Sign up
         </Button>
 

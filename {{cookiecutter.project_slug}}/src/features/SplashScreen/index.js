@@ -46,7 +46,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  mainText: { fontSize: 20, fontFamily: "Roboto-Medium" },
+  logo: {
+    width: "100%"
+  },
+  mainText: {
+    fontSize: 20,
+    fontFamily: "Roboto-Medium",
+    marginTop: 20,
+    color: "#130D3C"
+  },
   item: {
     borderBottomWidth: 1,
     marginTop: 20,

@@ -86,7 +86,7 @@ class SignUp extends Component {
           secureTextEntry={true}
         />
 
-        <Button style={styles.input} onPress={this.submitSignUp}>
+        <Button style={styles.button} onPress={this.submitSignUp}>
           Sign up
         </Button>
 

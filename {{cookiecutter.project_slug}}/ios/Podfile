@@ -29,8 +29,8 @@ target '{{cookiecutter.project_slug}}' do
   
   {% if cookiecutter.has_maps_blueprint == "y" %}
   # react-native-maps dependencies
-  pod 'react-native-maps', path: rn_maps_path
-  pod 'react-native-google-maps', path: rn_maps_path  
+  pod 'react-native-maps', path: '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', '../node_modules/react-native-maps'
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
   {% endif %}
@@ -42,11 +42,14 @@ post_install do |installer|
 
     # Add your custom iterators here
 
-    # if target.name == 'react-native-google-maps'
-    #   target.build_configurations.each do |config|
-    #     config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
-    #   end
-    # end
+    {% if cookiecutter.has_maps_blueprint == "y" %}
+    if target.name == 'react-native-google-maps'
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+      end
+    end
+    {% endif %}
+
     if target.name == "React"
       target.remove_from_project
     end

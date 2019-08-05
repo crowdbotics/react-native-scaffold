@@ -24,8 +24,7 @@ const AppNavigator = createStackNavigator(
     MapsScreen: {
       screen: GoogleMapsNavigator
     },
-    }
-    {% endif %},
+    {% endif %}
     {% if cookiecutter.has_calendar_blueprint == "y" %}
     Calendar: {
       screen: CalendarNavigator

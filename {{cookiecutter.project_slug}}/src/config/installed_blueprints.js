@@ -8,12 +8,20 @@ export const installed_blueprints = [
     human_name: "EmailAuth",
     access_route: "EmailAuth"
   },
+  {% if cookiecutter.has_calendar_blueprint == "y" %}
   {
     name: "Google Maps",
     human_name: "Google Maps",
     access_route: "MapsScreen"
   },
-
+  {% endif %}
+  {% if cookiecutter.has_maps_blueprint == "y" %}
+  {
+    name: "Calendar",
+    human_name: "Calendar",
+    access_route: "Calendar"
+  },
+  {% endif %}
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
 ];

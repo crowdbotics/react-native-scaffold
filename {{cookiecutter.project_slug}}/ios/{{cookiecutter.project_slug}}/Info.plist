@@ -67,5 +67,16 @@
 		<string>Roboto-Medium.ttf</string>
 		<string>Roboto-Regular.ttf</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.151121818515-8gker8ol2cbv66m0dclfseflpsrd45jc</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

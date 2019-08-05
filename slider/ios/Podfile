@@ -1,0 +1,45 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'slider' do
+  
+    # Pods for slider
+    # Base dependencies, don't modify this unless you know what you are doing
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+      'Core',
+      'CxxBridge',
+      'DevSupport',
+      'RCTActionSheet',
+      'RCTAnimation',
+      'RCTGeolocation',
+      'RCTImage',
+      'RCTLinkingIOS',
+      'RCTNetwork',
+      'RCTSettings',
+      'RCTText',
+      'RCTVibration',
+      'RCTWebSocket',
+    ]
+    pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+    pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+    pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+    pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  
+    # Add aditional dependencies here
+    
+    # Calendar blueprint dependencies
+    pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+    pod 'GoogleSignIn', '~> 4.4.0'
+    
+  
+  end
+  
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+  
+      # Add your custom iterators here
+      if target.name == "React"
+        target.remove_from_project
+      end
+    end
+  end

@@ -74,7 +74,7 @@ class PasswordRecover extends Component {
           style={styles.input}
         />
 
-        <Button style={styles.input} onPress={this.submitPasswordReset}>
+        <Button style={styles.button} onPress={this.submitPasswordReset}>
           Reset Password
         </Button>
 

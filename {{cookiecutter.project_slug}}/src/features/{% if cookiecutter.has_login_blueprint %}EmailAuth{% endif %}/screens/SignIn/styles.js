@@ -5,22 +5,33 @@ import { scaleVertical, scale } from "../../../../utils/scale";
 export const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    backgroundColor: "#091142"
   },
   input: {
-    // paddingLeft: 10,
-    // paddingRight: 10,
-    // paddingTop: scaleVertical(12),
-    // paddingBottom: scaleVertical(10)
+    backgroundColor: "white",
+    paddingLeft: 10,
+    paddingRight: 10,
+    margin: 5
   },
-
+  button: {
+    backgroundColor: "#961247",
+    margin: 15
+  },
   image: {
     resizeMode: "cover",
     marginBottom: scaleVertical(10)
   },
-
   textRow: {
     textAlign: "center"
-    // marginBottom: scaleVertical(22)
+  },
+  passwordForgot: {
+    textDecorationLine: "underline",
+    fontSize: 18
+  },
+  buttonContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
   }
 });

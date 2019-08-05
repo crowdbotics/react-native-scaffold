@@ -40,6 +40,9 @@ target '{{cookiecutter.project_slug}}' do
   pod 'GoogleSignIn', '~> 4.4.0'
   {% endif %}
 
+  {% if cookiecutter.has_camera_blueprint == "y" %}
+  pod 'react-native-camera', path: '../node_modules/react-native-camera'
+  {% endif %}
 
   end
 

@@ -103,6 +103,13 @@ Not a CB developer? Create an [Apple developer](https://developer.apple.com)
 and follow the instructions on [codesigning guide](https://codesigning.guide/)
 to setup your certificates.
 
-## Blueprints
+## TroubleShooting
 
-Todo
+### Module "redux" does not exist in the haste module map.
+
+Run the following:
+
+`watchman watch-del-all`
+`rm -rf node_modules && npm install`
+`rm -rf /tmp/metro-bundler-cache-*` or `npm start -- --reset-cache`
+`rm -rf /tmp/haste-map-react-native-packager-*`

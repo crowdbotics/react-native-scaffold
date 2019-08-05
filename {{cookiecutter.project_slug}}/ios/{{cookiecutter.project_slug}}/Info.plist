@@ -78,5 +78,19 @@
 			</array>
 		</dict>
 	</array>
+	{% if cookiecutter.has_camera_blueprint == "y" %}
+	<key>NSCameraUsageDescription</key>
+	<string>Allow this app to access the Camera?</string>
+
+ 	<!-- Include this only if you are planning to use the camera roll -->
+	<!-- <key>NSPhotoLibraryUsageDescription</key>
+	<string>Your message to user when the photo library is accessed for the first time</string> -->
+	<!-- <key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Your message to user when the photo library is accessed for the first time</string> -->
+
+ 	<!-- Include this only if you are planning to use the microphone for video recording -->
+	<!-- <key>NSMicrophoneUsageDescription</key>
+	<string>Your message to user when the microphone is accessed for the first time</string> -->
+	{% endif %}
 </dict>
 </plist>

@@ -6,6 +6,10 @@ After cloning this repo, you will need to install the dependencies:
 
 `yarn install`
 
+Don't forget to link all native dependencies
+
+`react-native link`
+
 Then, you need to install the Podfile:
 
 `cd ios`

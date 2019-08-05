@@ -34,7 +34,7 @@ target '{{cookiecutter.project_slug}}' do
   pod 'Google-Maps-iOS-Utils'
   {% endif %}
 
-  {% if cookiecutter.has_calendar_blueprint == "True" %}
+  {% if cookiecutter.has_calendar_blueprint == "y" %}
     # Calendar blueprint dependencies
   pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
   pod 'GoogleSignIn', '~> 4.4.0'

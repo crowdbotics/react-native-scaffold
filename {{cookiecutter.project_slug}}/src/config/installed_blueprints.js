@@ -22,6 +22,13 @@ export const installed_blueprints = [
     access_route: "Calendar"
   },
   {% endif %}
+  {% if cookiecutter.has_tutorial_blueprint == "y" %}
+  {
+    name: "Tutorial",
+    human_name: "Tutorial",
+    access_route: "Tutorial"
+  },
+  {% endif %}
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
 ];

@@ -1,0 +1,67 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'test' do
+
+  # Pods for test
+  # Base dependencies, don't modify this unless you know what you are doing
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge',
+    'DevSupport',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket',
+  ]
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
+  # Add aditional dependencies here
+   
+  # react-native-maps dependencies
+  pod 'react-native-maps', path: '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', path: '../node_modules/react-native-maps'
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+  
+
+  
+    # Calendar blueprint dependencies
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+  pod 'GoogleSignIn', '~> 4.4.0'
+  
+
+  
+  pod 'react-native-camera', path: '../node_modules/react-native-camera'
+  
+
+  end
+
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+
+    # Add your custom iterators here
+
+    
+    if target.name == 'react-native-google-maps'
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+      end
+    end
+    
+
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
+end

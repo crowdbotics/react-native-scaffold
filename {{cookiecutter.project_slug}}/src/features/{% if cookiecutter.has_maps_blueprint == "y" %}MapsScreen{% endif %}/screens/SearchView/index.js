@@ -14,7 +14,7 @@ class MyListItem extends React.PureComponent {
     return (
       <TouchableOpacity onPress={this._onPress}>
         <View>
-          <Text style={{color: textColor}}>{this.props.title}</Text>
+          <Text style={ {color: textColor}}>{this.props.title}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -101,7 +101,7 @@ export default class MapsScreen extends Component {
     //Item sparator view
     return (
       <View
-        style={{
+        style={ {
           height: 0.3,
           width: '90%',
           backgroundColor: '#080808',
@@ -130,7 +130,7 @@ export default class MapsScreen extends Component {
             <Text style={styles.textStyle}>{item.title}</Text>
           )}
           enableEmptySections={true}
-          style={{ marginTop: 10 }}
+          style={ { marginTop: 10 }}
           keyExtractor={(item, index) => index}
           renderItem={this._renderItem}
         />

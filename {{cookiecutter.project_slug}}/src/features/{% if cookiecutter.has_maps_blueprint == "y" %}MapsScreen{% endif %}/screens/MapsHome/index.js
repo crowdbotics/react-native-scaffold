@@ -53,7 +53,7 @@ export default class MapsScreen extends Component {
         ref={ref => {
           this.marker1 = ref;
         }}
-        coordinate={{
+        coordinate={ {
             latitude: 37.871850,
             longitude: -122.259826,
             latitudeDelta: 0.02,
@@ -66,7 +66,7 @@ export default class MapsScreen extends Component {
         ref={ref => {
           this.marker1 = ref;
         }}
-        coordinate={{
+        coordinate={ {
             latitude: 37.822894,
             longitude: -122.370446,
             latitudeDelta: 0.02,

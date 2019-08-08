@@ -29,6 +29,13 @@ export const installed_blueprints = [
     access_route: "Tutorial"
   },
   {% endif %}
+  {% if cookiecutter.has_camera_blueprint == "y" %}
+  {
+  name: "Camera",
+  human_name: "Camera",
+  access_route: "UserCamera"
+  },
+  {% endif %}
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
 ];

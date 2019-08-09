@@ -164,9 +164,7 @@ dependencies {
     {% endif %}
 
     {% if cookiecutter.has_camera_blueprint == "y" %}
-    ```gradle
     implementation project(':react-native-camera')
-    ```
     {% endif %}
 }
 

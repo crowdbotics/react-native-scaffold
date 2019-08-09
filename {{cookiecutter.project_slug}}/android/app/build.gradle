@@ -107,6 +107,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        {% if cookiecutter.has_camera_blueprint == "y" %}missingDimensionStrategy 'react-native-camera', 'general'{% endif %}
     }
     splits {
         abi {
@@ -137,6 +138,15 @@ android {
     }
 }
 
+{% if cookiecutter.has_camera_blueprint == "y" %}
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
+    }
+}
+{% endif %}
+
 dependencies {
     {% if cookiecutter.has_calendar_blueprint == "y" %}implementation project(':react-native-google-signin'){% endif %}
     implementation project(':react-native-gesture-handler')
@@ -153,6 +163,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:10.0.1'
     {% endif %}
 
+    {% if cookiecutter.has_camera_blueprint == "y" %}
+    ```gradle
+    implementation project(':react-native-camera')
+    ```
+    {% endif %}
 }
 
 // Run this once to be able to run the application with BUCK

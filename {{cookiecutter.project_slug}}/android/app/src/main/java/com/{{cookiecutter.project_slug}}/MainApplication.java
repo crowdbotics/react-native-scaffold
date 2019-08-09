@@ -13,6 +13,8 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
+{% if cookiecutter.has_camera_blueprint == "y" %}import org.reactnative.camera.RNCameraPackage;{% endif %}
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -26,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             {% if cookiecutter.has_calendar_blueprint == "y" %}new RNGoogleSigninPackage(),{% endif %}
+            {% if cookiecutter.has_camera_blueprint == "y" %}new RNCameraPackage(),{% endif %}
             new RNGestureHandlerPackage()
       );
     }
@@ -46,4 +49,4 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
   }
-} 
+}

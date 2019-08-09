@@ -47,7 +47,7 @@ jobs:
 
       - run:
           name: Webhook Failed
-          command: bash .circleci/webhook_callback.sh "failed"
+          command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
 
   android:
@@ -91,7 +91,7 @@ jobs:
 
       - run:
           name: Webhook Failed
-          command: bash ../.circleci/webhook_callback.sh "failed"
+          command: bash ../.circleci/webhook_callback.sh "failure"
           when: on_fail
 
   ios:
@@ -189,7 +189,7 @@ jobs:
 
       - run:
           name: Webhook Failed
-          command: bash .circleci/webhook_callback.sh "failed"
+          command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
 
 workflows:

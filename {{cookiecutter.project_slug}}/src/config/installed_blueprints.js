@@ -36,6 +36,13 @@ export const installed_blueprints = [
   access_route: "UserCamera"
   },
   {% endif %}
+  {% if cookiecutter.has_messenger_blueprint == "y" %}
+  {
+  name: "MessengerChat",
+  human_name: "MessengerChat",
+  access_route: "Messenger"
+  },
+  {% endif %}
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
 ];

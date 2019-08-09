@@ -3,7 +3,7 @@ import { View, Text, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import Navbar  from '../../components/Navbar';
+import Navbar  from '../../../../components/Navbar';
 
 import styles from './style';
 
@@ -134,7 +134,9 @@ class ProfileScreen extends Component {
 
 
 ProfileScreen.propTypes = {
-  navigation: PropTypes.object
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default ProfileScreen;

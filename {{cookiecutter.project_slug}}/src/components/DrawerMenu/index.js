@@ -47,7 +47,9 @@ let styles = StyleSheet.create({
 });
 
 DrawerMenu.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
   currentScreen: PropTypes.string
 };
 

@@ -50,50 +50,6 @@ jobs:
           command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
 
-  android:
-    working_directory: ~/build/android
-    docker:
-      - image: circleci/android:api-28-node
-    steps:
-      - checkout:
-          path: ~/build
-
-      - attach_workspace:
-          at: ~/build
-
-      - restore_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
-
-      - run: bundle install
-
-      - save_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
-          paths:
-            - vendor/bundle
-
-      - run:
-          name: Run tests
-          command: |
-            mkdir -p test-results/fastlane
-            bundle exec fastlane test
-            mv fastlane/report.xml test-results/fastlane
-
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
-
-      - run:
-          name: Webhook Success
-          command: bash ../.circleci/webhook_callback.sh "success"
-          when: on_success
-
-      - run:
-          name: Webhook Failed
-          command: bash ../.circleci/webhook_callback.sh "failure"
-          when: on_fail
-
   ios:
     macos:
       xcode: "10.2.0"

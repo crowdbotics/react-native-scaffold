@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+{% if cookiecutter.has_iap_blueprint == "y" %}import com.dooboolab.RNIap.RNIapPackage;{% endif %}
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             {% if cookiecutter.has_calendar_blueprint == "y" %}new RNGoogleSigninPackage(),{% endif %}
             {% if cookiecutter.has_camera_blueprint == "y" %}new RNCameraPackage(),{% endif %}
+            {% if cookiecutter.has_iap_blueprint == "y" %}new RNIapPackage(),{% endif %}
             new RNGestureHandlerPackage()
       );
     }

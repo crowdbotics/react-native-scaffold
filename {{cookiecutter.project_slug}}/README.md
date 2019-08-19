@@ -113,3 +113,20 @@ Run the following:
 `rm -rf node_modules && npm install`
 `rm -rf /tmp/metro-bundler-cache-*` or `npm start -- --reset-cache`
 `rm -rf /tmp/haste-map-react-native-packager-*`
+
+### Missing GoogleService-Info.plist
+
+Go into your project's `.xcworkspace`, right click your project name's folder, and click `Add Files to [your project's name]`.
+
+Navigate to your project's `ios` folder, and click on `GoogleService-Info.plist`. Run your app again (and restart your Metro Bundler) and you should be all set!
+
+## Blueprint Setup
+
+### In App Purchases
+
+If you are using this blueprint, you MUST follow the following steps in order for the iOS build to work:
+
+1. In XCode, in the project navigator, right-click `Libraries` ➜ `Add Files to [your project's name]`
+2. Go to `node_modules` ➜ `react-native-iap` and add `RNIap.xcodeproj`
+3. In XCode, in the project navigator, select your project. Add `libRNIap.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+4. Run your project (Cmd+R)

@@ -1,7 +1,11 @@
 package com.{{cookiecutter.project_slug}};
 
 import android.app.Application;
+import android.util.Log;
 
+import com.facebook.react.PackageList;
+import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
+import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
 {% if cookiecutter.has_calendar_blueprint == "y" %}import co.apptailor.googlesignin.RNGoogleSigninPackage;{% endif %}
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -25,12 +29,11 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            {% if cookiecutter.has_calendar_blueprint == "y" %}new RNGoogleSigninPackage(),{% endif %}
-            {% if cookiecutter.has_camera_blueprint == "y" %}new RNCameraPackage(),{% endif %}
-            new RNGestureHandlerPackage()
-      );
+      @SuppressWarnings("UnnecessaryLocalVariable")
+          List<ReactPackage> packages = new PackageList(this).getPackages();
+          // Packages that cannot be autolinked yet can be added manually here, for example:
+          // packages.add(new MyReactNativePackage());
+          return packages;
     }
 
     @Override

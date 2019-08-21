@@ -46,6 +46,11 @@ target '{{cookiecutter.project_slug}}' do
   pod 'react-native-camera', path: '../node_modules/react-native-camera'
   {% endif %}
 
+  target '{{cookiecutter.project_slug}}Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
   post_install do |installer|
     installer.pods_project.targets.each do |target|
   

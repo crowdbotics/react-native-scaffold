@@ -7,6 +7,7 @@ export const CameraNavigator = createStackNavigator(
     Camera: { screen: CameraScreen }
   },
   {
-    initialRouteName: "Camera"
+    initialRouteName: "Camera",
+    headerMode: 'none',
   }
 );

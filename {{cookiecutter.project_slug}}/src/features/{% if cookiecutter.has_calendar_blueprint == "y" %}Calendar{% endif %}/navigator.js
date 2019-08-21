@@ -9,6 +9,7 @@ export default createStackNavigator(
     CalendarView: { screen: CalendarViewScreen }
   },
   {
-    initialRouteName: "CalendarLogin"
+    initialRouteName: "CalendarLogin",
+    headerMode: 'none',
   }
 );

@@ -7,6 +7,7 @@ export default createStackNavigator(
     MainTutorial: { screen: MainTutorialScreen }
   },
   {
-    initialRouteName: "MainTutorial"
+    initialRouteName: "MainTutorial",
+    headerMode: 'none',
   }
 );

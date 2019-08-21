@@ -24,6 +24,7 @@ target '{{cookiecutter.project_slug}}' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   # Add aditional dependencies here
    {% if cookiecutter.has_maps_blueprint == "y" %}

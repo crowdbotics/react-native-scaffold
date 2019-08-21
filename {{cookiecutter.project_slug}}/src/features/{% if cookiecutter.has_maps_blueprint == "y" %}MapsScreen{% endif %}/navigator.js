@@ -7,6 +7,7 @@ export const GoogleMapsNavigator = createStackNavigator(
     Maps: { screen: MapsHome }
   },
   {
-    initialRouteName: "Maps"
+    initialRouteName: "Maps",
+    headerMode: 'none',
   }
 );

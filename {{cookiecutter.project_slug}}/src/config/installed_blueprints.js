@@ -36,6 +36,13 @@ export const installed_blueprints = [
   access_route: "UserCamera"
   },
   {% endif %}
+  {% if cookiecutter.has_iap_blueprint == "y" %}
+  {
+  name: "In App Purchases",
+  human_name: "In App Purchases",
+  access_route: "InAppPurchases"
+  },
+  {% endif %}
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
 ];

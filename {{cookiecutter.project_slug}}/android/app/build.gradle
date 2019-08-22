@@ -166,6 +166,10 @@ dependencies {
     {% if cookiecutter.has_camera_blueprint == "y" %}
     implementation project(':react-native-camera')
     {% endif %}
+
+    {% if cookiecutter.has_iap_blueprint == "y" %}
+    implementation project(':react-native-iap')
+    {% endif %}
 }
 
 // Run this once to be able to run the application with BUCK

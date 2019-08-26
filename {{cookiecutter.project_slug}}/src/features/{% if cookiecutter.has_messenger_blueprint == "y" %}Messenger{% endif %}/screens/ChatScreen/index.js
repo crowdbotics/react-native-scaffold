@@ -1,17 +1,18 @@
 import React from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 import PubNubReact from 'pubnub-react';
+import appConfig from "../../../../config/app.js";
 
 export default class ChatScreen extends React.Component {
 
   constructor(props) {
     super(props);
     this.pubnub = new PubNubReact({
-      publishKey: 'pub-c-09038c51-029c-47a7-95f2-b6c7407afb12',
-      subscribeKey: 'sub-c-6b1bee04-ba9f-11e9-8753-ce76e7dc5905'
+      publishKey: appConfig.pubPublishKey,
+      subscribeKey: appConfig.pubSubscribeKey
     });
     this.pubnub.init(this);
-    state = {
+    this.state = {
      messages: [],
     }
     this.id = this.randomid();

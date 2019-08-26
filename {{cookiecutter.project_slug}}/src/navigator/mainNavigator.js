@@ -8,6 +8,8 @@ import SplashScreen from "../features/SplashScreen";
 {% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
 {% if cookiecutter.has_camera_blueprint == "y" %}import { CameraNavigator } from "../features/UserCamera/navigator";{% endif %}
 
+import {ProfileV1} from '../screens/social/profile1'
+
 /**
  * new navigators can be imported here
  */
@@ -42,10 +44,15 @@ const AppNavigator = createStackNavigator(
       screen: CameraNavigator
     },
     {% endif %}
+
+    ProfileV1: {
+      screen: ProfileV1
+    }
+
     /** new navigators can be added here */
   },
   {
-    initialRouteName: "SplashScreen",
+    initialRouteName: "ProfileV1",
     headerMode: "none" /** you can play with this */
   }
 );

@@ -10,6 +10,10 @@ import NavigatorProvider from "./navigator/mainNavigator";
 import { setupHttpConfig } from "./utils/http";
 import { crowdboticsTheme } from "./config/crowdboticsTheme";
 import * as NavigationService from "./navigator/NavigationService";
+import { data } from "./data";
+
+console.disableYellowBox = true;
+data.populateData();
 
 export default class App extends React.Component {
   state = {

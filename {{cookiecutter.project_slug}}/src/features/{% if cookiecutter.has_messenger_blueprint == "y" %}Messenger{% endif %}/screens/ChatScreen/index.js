@@ -17,15 +17,16 @@ export default class ChatScreen extends React.Component {
     }
     this.id = this.randomid();
   }
+
   randomid = () => {
     return Math.floor(Math.random() * 100);
   };
 
-  componentWillUnmount() {
+  componentDidUnmount() {
     this.pubnub.unsubscribe({ channels: ['ReactChat'] });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.pubnub.subscribe({
       channels: ["ReactChat"],
       message: message => console.log("sub", message),
@@ -53,7 +54,7 @@ export default class ChatScreen extends React.Component {
         user={ {
           _id: this.id,
           name: 'React Native',
-          avatar: 'https://cdn-images-1.medium.com/max/1200/1*D0E03PmeVga1wLJt7YLd1w.png',
+          avatar: require('../../assets/image-url.png'),
         }}
       />
     )

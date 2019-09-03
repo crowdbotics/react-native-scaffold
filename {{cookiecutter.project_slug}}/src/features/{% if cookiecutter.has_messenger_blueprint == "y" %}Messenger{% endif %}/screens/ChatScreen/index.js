@@ -11,10 +11,13 @@ export default class ChatScreen extends React.Component {
       publishKey: appConfig.pubPublishKey,
       subscribeKey: appConfig.pubSubscribeKey
     });
-    this.pubnub.init(this);
+    
     this.state = {
-     messages: [],
-    }
+      messages: [],
+     }
+
+    this.pubnub.init(this);
+
     this.id = this.randomid();
   }
 

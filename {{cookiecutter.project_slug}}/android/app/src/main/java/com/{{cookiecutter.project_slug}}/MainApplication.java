@@ -10,6 +10,8 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
+{% if cookiecutter.has_maps_blueprint == "y" %}import com.airbnb.android.react.maps.MapsPackage;{% endif %}
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,7 +31,9 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             {% if cookiecutter.has_calendar_blueprint == "y" %}new RNGoogleSigninPackage(),{% endif %}
             {% if cookiecutter.has_camera_blueprint == "y" %}new RNCameraPackage(),{% endif %}
-            new RNGestureHandlerPackage()
+            new RNGestureHandlerPackage(),
+            {% if cookiecutter.has_maps_blueprint == "y" %}new MapsPackage(){% endif %}
+
       );
     }
 

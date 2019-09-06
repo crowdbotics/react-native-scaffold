@@ -102,7 +102,7 @@ export const ProfileV1 = withStyles(_ProfileV1, theme => ({
     color: theme['color-basic-1000']
   },
   separator: {
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['color-basic-400'],
     alignSelf: 'center',
     flexDirection: 'row',
     flex: 0,
@@ -122,11 +122,3 @@ export const ProfileV1 = withStyles(_ProfileV1, theme => ({
   }
 }));
 
-const styles = StyleSheet.create({
- 
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    backgroundColor: 'white'
-  }
-});

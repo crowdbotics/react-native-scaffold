@@ -47,7 +47,31 @@ const AppNavigator = createStackNavigator(
 
     ProfileV1: {
       screen: ProfileV1
-    }
+    },
+
+    ProfileV2: {
+      screen: ProfileV2
+    },
+
+    ProfileV3: {
+      screen: ProfileV3
+    },
+
+    ProfileSettings: {
+      screen: ProfileSettings
+    },
+
+    Notifications: {
+      screen: Notifications
+    },
+
+    Contacts: {
+      screen: Contacts
+    },
+
+    Feed: {
+      screen: Feed
+    },
 
     /** new navigators can be added here */
   },

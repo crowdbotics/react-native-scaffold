@@ -6,10 +6,6 @@ After cloning this repo, you will need to install the dependencies:
 
 `yarn install`
 
-Don't forget to link all native dependencies
-
-`react-native link`
-
 Then, you need to install the Podfile:
 
 `cd ios`
@@ -102,14 +98,3 @@ New CB developers should get access to the codesigning repo and run `bundle exec
 Not a CB developer? Create an [Apple developer](https://developer.apple.com)
 and follow the instructions on [codesigning guide](https://codesigning.guide/)
 to setup your certificates.
-
-## TroubleShooting
-
-### Module "redux" does not exist in the haste module map.
-
-Run the following:
-
-`watchman watch-del-all`
-`rm -rf node_modules && npm install`
-`rm -rf /tmp/metro-bundler-cache-*` or `npm start -- --reset-cache`
-`rm -rf /tmp/haste-map-react-native-packager-*`

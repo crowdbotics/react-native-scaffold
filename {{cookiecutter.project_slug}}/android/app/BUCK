@@ -52,4 +52,4 @@ android_binary(
     deps = [
         ":app-code",
     ],
-) 
+)

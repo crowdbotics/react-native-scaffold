@@ -6,26 +6,23 @@
  */
 
 #import "AppDelegate.h"
+
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-{% if cookiecutter.has_maps_blueprint == "y" %}#import <GoogleMaps/GoogleMaps.h>{% endif %}
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-  {% if cookiecutter.has_maps_blueprint == "y" %}[GMSServices provideAPIKey:@"AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"];{% endif %}
-
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                    moduleName:@"{{cookiecutter.project_slug}}"
-                                              initialProperties:nil];
+                                                   moduleName:@"{{cookiecutter.project_slug}}"
+                                            initialProperties:nil];
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;

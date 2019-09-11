@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>151121818515-8gker8ol2cbv66m0dclfseflpsrd45jc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.151121818515-8gker8ol2cbv66m0dclfseflpsrd45jc</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAu0MbAsKO0UG3hf8j-cdk0-hpm4hwipAM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>151121818515</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.crowdbotics.rodman-golf-dev</string>
+	<key>PROJECT_ID</key>
+	<string>rodman-golf-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rodman-golf-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:151121818515:ios:154a9fd52a1d0a46</string>
+	<key>DATABASE_URL</key>
+	<string>https://rodman-golf-dev.firebaseio.com</string>
+</dict>
+</plist>

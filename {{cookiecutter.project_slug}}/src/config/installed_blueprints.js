@@ -62,6 +62,13 @@ export const installed_blueprints = [
     human_name: "Camera",
     access_route: "UserCamera"
   },
+  {% endif %},
+  {% if cookiecutter.has_calendar_blueprint == "y" %}
+  {
+    name: "Calendar",
+    human_name: "Calendar",
+    access_route: "Calendar"
+  },
   {% endif %}
 >>>>>>> Added camera and maps blueprint
 ];

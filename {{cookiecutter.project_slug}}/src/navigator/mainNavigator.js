@@ -9,6 +9,7 @@ import SplashScreen from "../features/SplashScreen";
 {% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
 {% if cookiecutter.has_email_auth_blueprint == "y" %}import {EmailAuthNavigator} from '../features/EmailAuth/navigator';{% endif %}
 {% if cookiecutter.has_camera_blueprint == "y" %}import { CameraNavigator } from "../features/UserCamera/navigator";{% endif %}
+{% if cookiecutter.has_calendar_blueprint == "y" %}import CalendarNavigator from "../features/Calendar/navigator";{% endif %}
 
 /**
  * new navigators can be imported here
@@ -52,11 +53,6 @@ const AppNavigator = createStackNavigator(
     },
     {% endif %}
     /** new navigators can be added here */
-  },
-  {
-    initialRouteName: "SplashScreen",
-    headerMode: "none" /** you can play with this */
-  }
   },
   {
     initialRouteName: 'SplashScreen',

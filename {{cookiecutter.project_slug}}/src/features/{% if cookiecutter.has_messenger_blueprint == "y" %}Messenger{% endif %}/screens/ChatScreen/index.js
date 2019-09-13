@@ -2,6 +2,7 @@ import React from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 import PubNubReact from 'pubnub-react';
 import appConfig from "../../../../config/app.js";
+import uuid from 'uuid'
 
 export default class ChatScreen extends React.Component {
 
@@ -22,7 +23,7 @@ export default class ChatScreen extends React.Component {
   }
 
   randomid = () => {
-    return Math.floor(Math.random() * 100);
+    return uuid()
   };
 
   componentDidUnmount() {

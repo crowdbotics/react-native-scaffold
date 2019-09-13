@@ -7,6 +7,7 @@ import SplashScreen from "../features/SplashScreen";
 {% if cookiecutter.has_calendar_blueprint == "y" %}import CalendarNavigator from "../features/Calendar/navigator";{% endif %}
 {% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
 {% if cookiecutter.has_camera_blueprint == "y" %}import { CameraNavigator } from "../features/UserCamera/navigator";{% endif %}
+{% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
 
 /**
  * new navigators can be imported here
@@ -40,6 +41,11 @@ const AppNavigator = createStackNavigator(
     {% if cookiecutter.has_camera_blueprint == "y" %}
     UserCamera: {
       screen: CameraNavigator
+    },
+    {% endif %}
+    {% if cookiecutter.has_messenger_blueprint == "y" %}
+    Messenger: {
+      screen: MessengerNavigator
     },
     {% endif %}
     /** new navigators can be added here */

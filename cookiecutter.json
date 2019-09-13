@@ -8,5 +8,6 @@
   "has_maps_blueprint": "y",
   "has_calendar_blueprint": "y",
   "has_tutorial_blueprint": "y",
-  "has_camera_blueprint": "y"
+  "has_camera_blueprint": "y",
+  "has_messenger_blueprint": "y"
 }

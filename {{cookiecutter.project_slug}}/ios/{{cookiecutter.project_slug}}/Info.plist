@@ -20,10 +20,50 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	
+	{% if cookiecutter.has_calendar_blueprint == "y" %}
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.151121818515-8gker8ol2cbv66m0dclfseflpsrd45jc</string>
+			</array>
+		</dict>
+	</array>
+	{% endif %}
+	
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+
+	{% if cookiecutter.has_camera_blueprint == "y" %}
+	<key>NSCameraUsageDescription</key>
+	<string>Your message to user when the camera is accessed for the first time</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your message to user when the photo library is accessed for the first time</string>
+
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your message to user when the microphone is accessed for the first time</string>
+    {% endif %}
+
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>
@@ -40,57 +80,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Setting NSLocationAlwaysUsageDescription since it is required by default</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>fontawesome.ttf</string>
-		<string>icomoon.ttf</string>
-		<string>Righteous-Regular.ttf</string>
-		<string>Roboto-Bold.ttf</string>
-		<string>Roboto-Light.ttf</string>
-		<string>Roboto-Medium.ttf</string>
-		<string>Roboto-Regular.ttf</string>
-	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.151121818515-8gker8ol2cbv66m0dclfseflpsrd45jc</string>
-			</array>
-		</dict>
-	</array>
-	{% if cookiecutter.has_camera_blueprint == "y" %}
-	<key>NSCameraUsageDescription</key>
-	<string>Allow this app to access the Camera?</string>
-
- 	<!-- Include this only if you are planning to use the camera roll -->
-	<!-- <key>NSPhotoLibraryUsageDescription</key>
-	<string>Your message to user when the photo library is accessed for the first time</string> -->
-	<!-- <key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Your message to user when the photo library is accessed for the first time</string> -->
-
- 	<!-- Include this only if you are planning to use the microphone for video recording -->
-	<!-- <key>NSMicrophoneUsageDescription</key>
-	<string>Your message to user when the microphone is accessed for the first time</string> -->
-	{% endif %}
 </dict>
 </plist>

@@ -17,11 +17,12 @@ opt_out_usage
 
 default_platform(:ios)
 
-app_name = "{{cookiecutter.project_dash_slug}}"
+app_name = "{{cookiecutter.project_slug}}"
 base_name = "{{cookiecutter.project_slug}}"
 team_name = "Crowdbotics Corporation"
 team_id = "6YKR59QXKM"
 filename = "#{base_name}.xcodeproj"
+workspaceName = "#{base_name}.xcworkspace"
 identifier = "com.crowdbotics.#{app_name}"
 
 platform :ios do
@@ -31,7 +32,7 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :tests do
-    run_tests(project: filename, scheme: base_name)
+    run_tests(workspace: workspaceName, scheme: base_name, build_for_testing: true)
   end
 
   desc "Push a new beta build to TestFlight"
@@ -50,7 +51,7 @@ platform :ios do
       app_identifier: identifier
     )
     update_project_team(path: filename, teamid: team_id)
-    match(type: "appstore", readonly: false)
+    match(type: "appstore", readonly: is_ci)
     disable_automatic_code_signing(
       path: filename,
       code_sign_identity: "iPhone Distribution: #{team_name} (#{team_id})"

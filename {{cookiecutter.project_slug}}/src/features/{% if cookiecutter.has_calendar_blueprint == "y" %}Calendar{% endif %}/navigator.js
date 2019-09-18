@@ -1,4 +1,4 @@
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 
 import CalendarLoginScreen from "./screens/CalendarLogin";
 import CalendarViewScreen from "./screens/CalendarView";

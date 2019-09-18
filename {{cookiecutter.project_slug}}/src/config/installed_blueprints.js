@@ -31,14 +31,6 @@ export const installed_blueprints = [
     access_route: "Tutorial"
   },
   {% endif %}
-<<<<<<< HEAD
-  {% if cookiecutter.has_camera_blueprint == "y" %}
-  {
-  name: "Camera",
-  human_name: "Camera",
-  access_route: "UserCamera"
-  },
-  {% endif %}
   {% if cookiecutter.has_messenger_blueprint == "y" %}
   {
   name: "MessengerChat",
@@ -48,27 +40,4 @@ export const installed_blueprints = [
   {% endif %}
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
-=======
-  {% if cookiecutter.has_maps_blueprint == "y" %}
-  {
-    name: "Google Maps",
-    human_name: "Google Maps",
-    access_route: "MapsScreen"
-  },
-  {% endif %}
-  {% if cookiecutter.has_camera_blueprint == "y" %}
-  {
-    name: "Camera",
-    human_name: "Camera",
-    access_route: "UserCamera"
-  },
-  {% endif %},
-  {% if cookiecutter.has_calendar_blueprint == "y" %}
-  {
-    name: "Calendar",
-    human_name: "Calendar",
-    access_route: "Calendar"
-  },
-  {% endif %}
->>>>>>> Added camera and maps blueprint
 ];

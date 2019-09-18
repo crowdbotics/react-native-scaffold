@@ -9,7 +9,6 @@ import SplashScreen from "../features/SplashScreen";
 {% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
 {% if cookiecutter.has_email_auth_blueprint == "y" %}import {EmailAuthNavigator} from '../features/EmailAuth/navigator';{% endif %}
 {% if cookiecutter.has_camera_blueprint == "y" %}import { CameraNavigator } from "../features/UserCamera/navigator";{% endif %}
-{% if cookiecutter.has_calendar_blueprint == "y" %}import CalendarNavigator from "../features/Calendar/navigator";{% endif %}
 
 /**
  * new navigators can be imported here
@@ -20,7 +19,6 @@ const AppNavigator = createStackNavigator(
     SplashScreen: {
       screen: SplashScreen
     },
-    {% endif %}
     {% if cookiecutter.has_maps_blueprint == "y" %}
     MapsScreen: {
       screen: GoogleMapsNavigator
@@ -29,9 +27,8 @@ const AppNavigator = createStackNavigator(
     {% if cookiecutter.has_calendar_blueprint == "y" %}
     Calendar: {
       screen: CalendarNavigator
-      screen: SplashScreen,
     },
-    /** new navigators can be added here */
+    {% endif %}
     {% if cookiecutter.has_email_auth_blueprint == "y" %}
     EmailAuth: {
       screen: EmailAuthNavigator,

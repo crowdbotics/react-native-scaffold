@@ -10,6 +10,8 @@ import SplashScreen from "../features/SplashScreen";
 {% if cookiecutter.has_email_auth_blueprint == "y" %}import {EmailAuthNavigator} from '../features/EmailAuth/navigator';{% endif %}
 {% if cookiecutter.has_camera_blueprint == "y" %}import { CameraNavigator } from "../features/UserCamera/navigator";{% endif %}
 
+//@BlueprintImportInsertion
+
 /**
  * new navigators can be imported here
  */
@@ -49,6 +51,9 @@ const AppNavigator = createStackNavigator(
       screen: MessengerNavigator
     },
     {% endif %}
+
+    //@BlueprintNavigationInsertion
+
     /** new navigators can be added here */
   },
   {

@@ -48,7 +48,7 @@
     "react-redux": "7.1.1",
     "redux": "4.0.4",
     "redux-saga": "1.0.5",
-    "react-native-keyboard-aware-scroll-view": "^0.9.1"
+    "react-native-keyboard-aware-scroll-view": "0.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

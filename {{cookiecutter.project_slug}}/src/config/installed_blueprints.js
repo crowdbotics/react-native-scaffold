@@ -38,6 +38,9 @@ export const installed_blueprints = [
   access_route: "Messenger"
   },
   {% endif %}
+
+  //@BlueprintInsertion
+
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
 ];

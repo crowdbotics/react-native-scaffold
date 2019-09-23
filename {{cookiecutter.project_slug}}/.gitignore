@@ -18,7 +18,6 @@ xcuserdata
 *.moved-aside
 DerivedData
 *.hmap
-*.ipa
 *.xcuserstate
 project.xcworkspace
 
@@ -57,3 +56,8 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM

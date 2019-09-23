@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import populate from './dataGenerator';
+import populateSeeds from './dataGenerator';
 import users from './raw/users';
 import articles from './raw/articles';
 import notifications from './raw/notifications';
@@ -45,7 +45,7 @@ class DataProvider {
   }
 
   populateData() {
-    populate();
+    populateSeeds();
   }
 }
 

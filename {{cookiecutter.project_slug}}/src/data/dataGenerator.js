@@ -36,10 +36,10 @@ const populateConversations = () => {
   });
 };
 
-const populate = () => {
+const populateSeeds = () => {
   populateArticles();
   populateNotifications();
   populateConversations();
 };
 
-export default populate;
+export default populateSeeds;

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import populateSeeds from './dataGenerator';
 import users from './raw/users';
 import articles from './raw/articles';
@@ -8,7 +7,7 @@ import cards from './raw/cards';
 
 class DataProvider {
   getUser(id = 1) {
-    return _.find(users, x => x.id === id);
+    return users.find(x => x.id === id);
   }
 
   getUsers() {
@@ -20,16 +19,16 @@ class DataProvider {
   }
 
   getArticles(type = 'article') {
-    return _.filter(articles, x => x.type === type);
+    return articles.filter(x => x.type === type);
   }
 
   getArticle(id) {
-    return _.find(articles, x => x.id === id);
+    return articles.find(x => x.id === id);
   }
 
 
   getConversation(userId = 1) {
-    return _.find(conversations, x => x.withUser.id === userId);
+    return conversations.find(x => x.withUser.id === userId);
   }
 
   getChatList() {

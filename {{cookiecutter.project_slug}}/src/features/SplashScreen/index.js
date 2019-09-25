@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import {StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
-import {Text, Button} from 'react-native-ui-kitten';
+import React, { Component } from "react";
+import { StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import { Text, Button } from "react-native-ui-kitten";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import LogoIcon from '../../assets/images/backgroundLoginV1.png';
-import {installed_blueprints} from '../../config/installed_blueprints';
-import {store} from '../../redux/store';
-import {styles} from './styles';
+import LogoIcon from "../../assets/images/backgroundLoginV1.png";
+import { installed_blueprints } from "../../config/installed_blueprints";
+import { store } from "../../redux/store";
+import { styles } from './styles'
 
 export default class App extends Component {
+
   static navigationOptions = {
     title: 'Installed blueprints',
   };

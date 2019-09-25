@@ -7,35 +7,48 @@ export const installed_blueprints = [
   {
     name: "EmailAuth",
     human_name: "EmailAuth",
-    access_route: "EmailAuth"
+    access_route: "EmailAuth",
+    icon_name: 'envelope-o',
   },
   {% endif %}
   {% if cookiecutter.has_calendar_blueprint == "y" %}
   {
     name: "Google Maps",
-    human_name: "Google Maps",
-    access_route: "MapsScreen"
+    human_name: "Maps",
+    access_route: "MapsScreen",
+    icon_name: 'map',
   },
   {% endif %}
   {% if cookiecutter.has_maps_blueprint == "y" %}
   {
     name: "Calendar",
     human_name: "Calendar",
-    access_route: "Calendar"
+    access_route: "Calendar",
+    icon_name: 'calendar',
   },
   {% endif %}
   {% if cookiecutter.has_tutorial_blueprint == "y" %}
   {
     name: "Tutorial",
     human_name: "Tutorial",
-    access_route: "Tutorial"
+    access_route: "Tutorial",
+    icon_name: 'question-circle',
+  },
+  {% endif %}
+  {% if cookiecutter.has_camera_blueprint == "y" %}
+  {
+    name: "Camera",
+    human_name: "Camera",
+    access_route: "UserCamera",
+    icon_name: 'camera',
   },
   {% endif %}
   {% if cookiecutter.has_messenger_blueprint == "y" %}
   {
   name: "MessengerChat",
-  human_name: "MessengerChat",
-  access_route: "Messenger"
+  human_name: "Chat",
+  access_route: "Messenger",
+  icon_name: 'comments',
   },
   {% endif %}
 

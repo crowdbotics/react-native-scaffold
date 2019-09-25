@@ -15,6 +15,7 @@ export const EmailAuthNavigator = createStackNavigator(
     ConfirmationRequired: { screen: ConfirmationRequiredScreen }
   },
   {
-    initialRouteName: "SignIn"
+    initialRouteName: "SignIn",
+    headerMode: 'none'
   }
 );

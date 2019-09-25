@@ -7,6 +7,7 @@ export const MessengerNavigator = createStackNavigator(
     Home: { screen: ChatScreen }
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Home",
+    headerMode: 'none',
   }
 );

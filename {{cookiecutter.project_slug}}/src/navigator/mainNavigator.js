@@ -58,7 +58,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'SplashScreen',
-    headerMode: 'none' /** you can play with this */,
+    headerMode: 'screen' /** you can play with this */,
   },
 );
 

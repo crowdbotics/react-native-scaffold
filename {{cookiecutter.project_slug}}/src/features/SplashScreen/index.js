@@ -1,30 +1,42 @@
-import React, { Component } from "react";
-import { StyleSheet, Image, ScrollView } from "react-native";
-import { Text, Button } from "react-native-ui-kitten";
-import LogoIcon from "../../assets/images/backgroundLoginV1.png";
-import { installed_blueprints } from "../../config/installed_blueprints";
-import { store } from "../../redux/store";
+import React, {Component} from 'react';
+import {StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {Text, Button} from 'react-native-ui-kitten';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import LogoIcon from '../../assets/images/backgroundLoginV1.png';
+import {installed_blueprints} from '../../config/installed_blueprints';
+import {store} from '../../redux/store';
+import {styles} from './styles';
 
 export default class App extends Component {
+  static navigationOptions = {
+    title: 'Installed blueprints',
+  };
+
   componentDidMount() {
-    store.dispatch({ type: "TEST/ALO" });
+    store.dispatch({type: 'TEST/ALO'});
   }
 
-  renderItem(item) {
+  renderItems() {
     const {
-      navigation: { navigate }
+      navigation: {navigate},
     } = this.props;
 
     return installed_blueprints.map(item => {
-      if (item.hasOwnProperty("access_route")) {
+      if (item.hasOwnProperty('access_route')) {
         return (
-          <Button
-            key={`${item.name}--blueprint-button`}
+          <TouchableOpacity
             onPress={_ => navigate(item.access_route)}
             style={styles.item}
-          >
-            {item.human_name}
-          </Button>
+            key={`${item.name}--blueprint-button`}>
+            <Icon
+              style={styles.itemLogo}
+              name={item.icon_name ? item.icon_name : 'profiles'}
+              size={40}
+              color="#F88087"
+            />
+            <Text style={styles.itemFont}>{item.human_name}</Text>
+          </TouchableOpacity>
         );
       }
     });
@@ -32,24 +44,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <Image source={LogoIcon} style={styles.logo} />
-        <Text style={styles.mainText}>Installed blueprints</Text>
-        {this.renderItem()}
+      <ScrollView contentContainerStyle={styles.itemsContainer}>
+        {this.renderItems()}
       </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  mainText: { fontSize: 20 },
-  item: {
-    borderBottomWidth: 1,
-    marginTop: 20,
-    borderBottomColor: "gray"
-  }
-});

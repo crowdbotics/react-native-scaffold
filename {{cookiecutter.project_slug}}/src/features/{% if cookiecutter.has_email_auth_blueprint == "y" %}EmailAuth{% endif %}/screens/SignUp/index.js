@@ -4,7 +4,7 @@ import { Image, Dimensions } from "react-native";
 import { Text, Layout, Button, Input } from "react-native-ui-kitten";
 
 import { scaleModerate } from "../../../../utils/scale";
-import { styles } from "./styles";
+import { styles } from "../styles";
 import * as emailAuthActions from "../../redux/actions";
 import ErrorBox from "../../../../components/ErrorBox";
 class SignUp extends Component {
@@ -86,7 +86,7 @@ class SignUp extends Component {
           secureTextEntry={true}
         />
 
-        <Button style={styles.input} onPress={this.submitSignUp}>
+        <Button style={styles.actionButon} onPress={this.submitSignUp}>
           Sign up
         </Button>
 

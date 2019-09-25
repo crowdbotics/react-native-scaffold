@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, Layout, Button } from "react-native-ui-kitten";
-import { styles } from "./styles";
+import { styles } from "../styles";
 
 export default function ConfirmationRequired(props) {
   const handleOnPress = () => {

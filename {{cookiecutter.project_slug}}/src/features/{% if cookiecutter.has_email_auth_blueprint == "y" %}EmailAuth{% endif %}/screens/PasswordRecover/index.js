@@ -4,7 +4,7 @@ import { Image, Dimensions } from "react-native";
 import { Layout, Button, Input } from "react-native-ui-kitten";
 
 import { scaleModerate } from "../../../../utils/scale";
-import { styles } from "./styles";
+import { styles } from "../styles";
 import * as emailAuthActions from "../../redux/actions";
 import ErrorBox from "../../../../components/ErrorBox";
 
@@ -74,7 +74,7 @@ class PasswordRecover extends Component {
           style={styles.input}
         />
 
-        <Button style={styles.input} onPress={this.submitPasswordReset}>
+        <Button style={styles.actionButon} onPress={this.submitPasswordReset}>
           Reset Password
         </Button>
 

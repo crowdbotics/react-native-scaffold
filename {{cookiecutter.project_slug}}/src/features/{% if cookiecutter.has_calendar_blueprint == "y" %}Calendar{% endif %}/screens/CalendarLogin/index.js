@@ -49,12 +49,12 @@ class CalendarLogin extends Component {
     }
 
     return (
-      <Layout>
-        <Text style={styles.textRow}>Sign In with your google account</Text>
+      <Layout style={styles.signInContainer}>
+        <Text style={styles.textRow}>SignIn with your Google account</Text>
         <GoogleSigninButton
           style={styles.loginButton}
+          color={GoogleSigninButton.Color.Light}
           size={GoogleSigninButton.Size.Wide}
-          color={GoogleSigninButton.Color.Dark}
           onPress={actions.googleSignIn}
           disabled={this.state.isSigninInProgress}
         />

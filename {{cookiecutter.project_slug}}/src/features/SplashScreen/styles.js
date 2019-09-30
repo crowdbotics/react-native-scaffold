@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: "space-between",
         alignItems: "center",
-
+        marginTop: 30,
     },
     item: {
         alignItems: 'center',
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
         borderColor: '#e3e3e3',
         padding: 10,
         color: 'black',
-        width: '32%',
+        width: '48%',
         margin: 2,
     },
     itemLogo: {

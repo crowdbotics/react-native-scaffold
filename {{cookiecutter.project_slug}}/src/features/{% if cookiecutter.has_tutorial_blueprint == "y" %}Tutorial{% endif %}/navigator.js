@@ -1,13 +1,16 @@
 import { createStackNavigator } from "react-navigation-stack";
 
 import MainTutorialScreen from "./screens/MainTutorial";
+import Home from "./screens/";
+
 
 export default createStackNavigator(
   {
-    MainTutorial: { screen: MainTutorialScreen }
+    MainTutorial: { screen: MainTutorialScreen },
+    Home: { screen: Home },
+    
   },
   {
-    initialRouteName: "MainTutorial",
-    headerMode: 'none'
+    initialRouteName: "Home",
   }
 );

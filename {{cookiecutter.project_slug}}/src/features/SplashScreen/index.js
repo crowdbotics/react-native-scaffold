@@ -12,6 +12,7 @@ export default class App extends Component {
 
   static navigationOptions = {
     title: 'Installed blueprints',
+    
   };
 
   componentDidMount() {
@@ -32,7 +33,7 @@ export default class App extends Component {
             key={`${item.name}--blueprint-button`}>
             <Icon
               style={styles.itemLogo}
-              name={item.icon_name ? item.icon_name : 'profiles'}
+              name={item.icon_name ? item.icon_name : 'pencil-square-o'}
               size={40}
               color="#F88087"
             />

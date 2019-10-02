@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, Image, View, Alert } from "react-native";
-import { Text, Input } from "react-native-ui-kitten";
+import { Input } from "react-native-ui-kitten";
 
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+
+import { styles } from './styles'
 
 export default class MapsScreen extends Component {
   constructor(props) {
@@ -30,22 +31,3 @@ export default class MapsScreen extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: "flex-end",
-    alignItems: "center"
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject
-  },
-  searchbar: {
-    padding: 10,
-    margin: 10,
-    justifyContent: "center",
-    alignItems: "flex-start",
-    backgroundColor: "white"
-  }
-});

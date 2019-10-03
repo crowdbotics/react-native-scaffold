@@ -11,9 +11,8 @@ const slides = [
     title: "Slide 1",
     titleStyle: styles.title,
     textStyle: styles.text,
-    image: require("../../../../assets/images/backgroundLoginV1.png"),
-    imageStyle: styles.image,
-    backgroundColor: "#0C265D"
+    image: require("../../../../assets/images/smallLogo.png"),
+    backgroundColor: "#e74c3c"
   },
   {
     key: "s2",
@@ -24,6 +23,16 @@ const slides = [
     image: require("../../../../assets/images/darkThemeImage.png"),
     imageStyle: styles.image,
     backgroundColor: "#0C265D"
+  },
+  {
+    key: "s3",
+    text: "Intro Tutorial 3",
+    title: "Slide 3",
+    image: require("../../../../assets/images/lightThemeImage.png"),
+    titleStyle: styles.title,
+    textStyle: styles.text,
+    imageStyle: styles.image,
+    backgroundColor: "#2ecc71"
   }
 ];
 

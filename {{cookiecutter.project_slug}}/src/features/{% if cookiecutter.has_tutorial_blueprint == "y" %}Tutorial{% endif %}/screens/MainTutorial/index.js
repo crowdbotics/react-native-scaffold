@@ -23,7 +23,7 @@ const slides = [
     textStyle: styles.text,
     image: require("../../../../assets/images/darkThemeImage.png"),
     imageStyle: styles.image,
-    backgroundColor: "#961247"
+    backgroundColor: "#0C265D"
   }
 ];
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 import PubNubReact from 'pubnub-react';
-import appConfig from "../../../../config/app.js";
+import { appConfig } from "../../../../config/app.js";
 import uuid from 'uuid'
 
 export default class ChatScreen extends React.Component {
@@ -26,7 +26,7 @@ export default class ChatScreen extends React.Component {
     return uuid()
   };
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     this.pubnub.unsubscribe({ channels: ['ReactChat'] });
   }
 
@@ -58,7 +58,7 @@ export default class ChatScreen extends React.Component {
         user={ {
           _id: this.id,
           name: 'React Native',
-          avatar: require('../../assets/image-url.png'),
+          avatar: 'https://i.pravatar.cc/140',
         }}
       />
     )

@@ -43,5 +43,23 @@ export const styles = StyleSheet.create({
 
   boldText:{
     fontWeight: 'bold'
-  }
+  },
+  buttons: {
+    flexDirection: 'row',
+    marginBottom: scaleVertical(24),
+    justifyContent: 'center',
+  },
+  button: {
+    marginHorizontal: 14,
+    marginTop: 27.5,
+    alignSelf: "center",
+    borderColor: '#ED6854',
+    borderWidth: 2,
+    padding: 15,
+    borderRadius: 32,
+    width: 64,
+    height: 64,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 });

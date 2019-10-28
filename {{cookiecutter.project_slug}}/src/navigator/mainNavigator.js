@@ -1,7 +1,9 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 
 import SplashScreen from "../features/SplashScreen";
+import SideMenu from './sideMenu';
 
 {% if cookiecutter.has_maps_blueprint == "y" %}import { GoogleMapsNavigator } from "../features/MapsScreen/navigator";{% endif %}
 {% if cookiecutter.has_calendar_blueprint == "y" %}import CalendarNavigator from "../features/Calendar/navigator";{% endif %}
@@ -16,8 +18,7 @@ import SplashScreen from "../features/SplashScreen";
  * new navigators can be imported here
  */
 
-const AppNavigator = createStackNavigator(
-  {
+const AppNavigator = {
     SplashScreen: {
       screen: SplashScreen
     },
@@ -55,13 +56,18 @@ const AppNavigator = createStackNavigator(
     //@BlueprintNavigationInsertion
 
     /** new navigators can be added here */
+};
+
+const DrawerAppNavigator = createDrawerNavigator(
+  {
+    ...AppNavigator,
   },
   {
+    contentComponent: SideMenu,
     initialRouteName: 'SplashScreen',
-    headerMode: 'none' /** you can play with this */,
   },
 );
 
-const AppContainer = createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(DrawerAppNavigator);
 
 export default AppContainer;

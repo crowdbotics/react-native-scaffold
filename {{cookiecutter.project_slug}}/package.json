@@ -41,7 +41,8 @@
     "redux": "4.0.4",
     "redux-saga": "1.0.5",
     "react-native-keyboard-aware-scroll-view": "0.9.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "react-navigation-drawer": "^2.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

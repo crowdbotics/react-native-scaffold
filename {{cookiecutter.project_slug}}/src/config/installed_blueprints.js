@@ -1,8 +1,4 @@
 export const installed_blueprints = [
-  {
-    name: "SplashScreen",
-    human_name: "Splash Screen"
-  },
   {% if cookiecutter.has_email_auth_blueprint == "y" %}
   {
     name: "EmailAuth",

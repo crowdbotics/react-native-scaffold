@@ -29,16 +29,12 @@ target '{{cookiecutter.project_slug}}' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  {% if cookiecutter.has_maps_blueprint == "y" %}
   rn_maps_path = '../node_modules/react-native-maps'
   pod 'react-native-google-maps', :path => rn_maps_path
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
-  {% endif %}
 
-  {% if cookiecutter.has_camera_blueprint == "y" %}
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
-  {% endif %}
 
 
   target '{{cookiecutter.project_slug}}Tests' do

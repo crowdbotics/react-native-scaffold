@@ -10,13 +10,13 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-{% if cookiecutter.has_maps_blueprint == "y" %}#import <GoogleMaps/GoogleMaps.h>{% endif %}
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  {% if cookiecutter.has_maps_blueprint == "y" %}[GMSServices provideAPIKey:@"AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"];{% endif %}
+  [GMSServices provideAPIKey:@"AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"];
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"{{cookiecutter.project_slug}}"

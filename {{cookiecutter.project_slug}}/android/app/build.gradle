@@ -134,7 +134,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        {% if cookiecutter.has_camera_blueprint == "y" %}missingDimensionStrategy 'react-native-camera', 'general'{% endif %}
+        missingDimensionStrategy 'react-native-camera', 'general'
     }
     splits {
         abi {

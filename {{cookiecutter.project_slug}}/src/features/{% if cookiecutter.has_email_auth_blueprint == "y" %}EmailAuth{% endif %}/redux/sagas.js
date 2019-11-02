@@ -1,5 +1,5 @@
-import { all, takeLatest, put, call } from "redux-saga/effects";
-import * as NavigationService from "../../../navigator/NavigationService";
+import {all, takeLatest, put, call} from 'redux-saga/effects';
+import * as NavigationService from '../../../navigator/NavigationService';
 
 import {
   EMAIL_AUTH_LOGIN_REQUEST,
@@ -10,114 +10,115 @@ import {
   EMAIL_AUTH_SIGNUP_ERROR,
   EMAIL_AUTH_SIGNUP_SUCCESS,
   EMAIL_AUTH_PASSWORD_RECOVER_SUCCESS,
-  EMAIL_AUTH_PASSWORD_RECOVER_ERROR
-} from "./constants";
-import { request } from "../../../utils/http";
+  EMAIL_AUTH_PASSWORD_RECOVER_ERROR,
+} from './constants';
+import {request} from '../../../utils/http';
 
-function sendLogin({ email, password }) {
-  return request.post("/rest-auth/login/", {
-    email,
-    password
+function sendLogin({email, password}) {
+  return request.post('/api/v1/login/', {
+    username: email,
+    password,
   });
 }
 
-function sendSignUp({ email, password }) {
-  return request.post("/rest-auth/registration/", {
+function sendSignUp({email, password}) {
+  return request.post('/api/v1/signup/', {
     email,
-    password
+    password,
   });
 }
 
 function sendPasswordRecovery(email) {
-  return request.post("/rest-auth/password/reset/", {
-    email
+  //There is no reset password endpoint in backend, it's just a fake url
+  return request.post('/api/v1/password-reset/', {
+    email,
   });
 }
 
 function* handleLogin(action) {
   const {
-    user: { email, password }
+    user: {email, password},
   } = action;
   try {
-    const { status, data } = yield call(sendLogin, { email, password });
+    const {status, data} = yield call(sendLogin, {email, password});
 
     if (status === 200) {
       yield put({
         type: EMAIL_AUTH_LOGIN_SUCCESS,
-        accessToken: data.key
+        accessToken: data.token,
       });
 
       // you can change the navigate for navigateAndResetStack to go to a protected route
-      NavigationService.navigate("ProtectedRoute");
+      NavigationService.navigate('ProtectedRoute');
     } else {
       yield put({
         type: EMAIL_AUTH_LOGIN_ERROR,
-        error: "Unknown Error"
+        error: 'Unknown Error',
       });
     }
   } catch (error) {
     // todo add errors with similar structure in backend
     yield put({
       type: EMAIL_AUTH_LOGIN_ERROR,
-      error: "Can't sign in with provided credentials"
+      error: "Can't sign in with provided credentials",
     });
   }
 }
 
 function* handleSignUp(action) {
   const {
-    user: { email, password }
+    user: {email, password},
   } = action;
   try {
-    const { status, data } = yield call(sendSignUp, { email, password });
+    const {status, data} = yield call(sendSignUp, {email, password});
 
     if (status === 201) {
       yield put({
         type: EMAIL_AUTH_SIGNUP_SUCCESS,
-        user: data.user
+        user: data.user,
       });
 
       // you can change the navigate for navigateAndResetStack to go to a protected route
-      NavigationService.navigate("ConfirmationRequired");
+      NavigationService.navigate('ConfirmationRequired');
     } else {
       yield put({
         type: EMAIL_AUTH_SIGNUP_ERROR,
-        error: "Unknown Error"
+        error: 'Unknown Error',
       });
     }
   } catch (error) {
     // todo add errors with similar structure in backend
     yield put({
       type: EMAIL_AUTH_SIGNUP_ERROR,
-      error: "Can't sign up with provided credentials"
+      error: "Can't sign up with provided credentials",
     });
   }
 }
 
 function* handlePasswordRecovery(action) {
-  const { email } = action;
+  const {email} = action;
 
   try {
-    const { status } = yield call(sendPasswordRecovery, email);
+    const {status} = yield call(sendPasswordRecovery, email);
 
     if (status === 200) {
       yield put({
         type: EMAIL_AUTH_PASSWORD_RECOVER_SUCCESS,
-        email
+        email,
       });
 
       // you can change the navigate for navigateAndResetStack to go to a protected route
-      NavigationService.navigate("ConfirmationRequired");
+      NavigationService.navigate('ConfirmationRequired');
     } else {
       yield put({
         type: EMAIL_AUTH_PASSWORD_RECOVER_ERROR,
-        error: "Unknown Error"
+        error: 'Unknown Error',
       });
     }
   } catch (error) {
     yield put({
       type: EMAIL_AUTH_PASSWORD_RECOVER_ERROR,
-      error: "Can't recover password with provided email"
+      error: "Can't recover password with provided email",
     });
   }
 }
@@ -125,5 +126,5 @@ function* handlePasswordRecovery(action) {
 export default all([
   takeLatest(EMAIL_AUTH_LOGIN_REQUEST, handleLogin),
   takeLatest(EMAIL_AUTH_SIGNUP_REQUEST, handleSignUp),
-  takeLatest(EMAIL_AUTH_PASSWORD_RECOVER_REQUEST, handlePasswordRecovery)
+  takeLatest(EMAIL_AUTH_PASSWORD_RECOVER_REQUEST, handlePasswordRecovery),
 ]);

@@ -14,7 +14,7 @@ export default function ConfirmationRequired(props) {
         We have sent a confirmation link to your email address. In order
         continue, please click the confirmation link.
       </Text>
-      <Button style={{marginTop: 30}} onPress={handleOnPress}>
+      <Button style={styles.actionButon} onPress={handleOnPress}>
         Return to blueprints
       </Button>
     </Layout>

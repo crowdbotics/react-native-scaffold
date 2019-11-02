@@ -12,7 +12,7 @@ const ProtectedScreen = ({accessToken, actions}) => {
       <Text style={[styles.textRow, {marginTop: 10}]}>
         Your token is {accessToken}
       </Text>
-      <Button style={{marginTop: 30}} onPress={actions.logoutAction}>
+      <Button style={styles.actionButon} onPress={actions.logoutAction}>
         Sign out
       </Button>
     </Layout>

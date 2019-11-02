@@ -79,6 +79,9 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Your message to user when the microphone is accessed for the first time</string>
 
+	<key>NSPhotoLibraryAddUsageDescription</key>
+  <string>$(PRODUCT_NAME) would like to save photos to your photo gallery</string>
+
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

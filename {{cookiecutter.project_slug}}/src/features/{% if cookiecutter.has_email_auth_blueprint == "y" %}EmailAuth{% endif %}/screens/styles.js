@@ -7,7 +7,9 @@ export const styles = StyleSheet.create({
   screen: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    marginTop: 10,
+    padding: 10
   },
   input: {
     backgroundColor: 'white',
@@ -61,5 +63,8 @@ export const styles = StyleSheet.create({
     height: 64,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  text: {
+    color: 'black',
   },
 });

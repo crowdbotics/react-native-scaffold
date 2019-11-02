@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, Image, ScrollView, Alert } from "react-native";
-import { Text, Layout, Button } from "react-native-ui-kitten";
+import { StyleSheet, Image, ScrollView } from "react-native";
+import { Text, Button } from "react-native-ui-kitten";
 import LogoIcon from "../../assets/images/backgroundLoginV1.png";
 import { installed_blueprints } from "../../config/installed_blueprints";
 import { store } from "../../redux/store";
@@ -46,15 +46,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  logo: {
-    width: "100%"
-  },
-  mainText: {
-    fontSize: 20,
-    fontFamily: "Roboto-Medium",
-    marginTop: 20,
-    color: "#130D3C"
-  },
+  mainText: { fontSize: 20 },
   item: {
     borderBottomWidth: 1,
     marginTop: 20,

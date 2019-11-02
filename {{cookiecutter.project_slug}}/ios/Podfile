@@ -1,9 +1,8 @@
-
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 target '{{cookiecutter.project_slug}}' do
-  # Pods for upgrade6041
+  # Pods for {{cookiecutter.project_slug}}
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -23,47 +22,37 @@ target '{{cookiecutter.project_slug}}' do
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  # Add aditional dependencies here
-   {% if cookiecutter.has_maps_blueprint == "y" %}
-  # react-native-maps dependencies
-  pod 'react-native-maps', path: '../node_modules/react-native-maps'
-  pod 'react-native-google-maps', path: '../node_modules/react-native-maps'
+  {% if cookiecutter.has_maps_blueprint == "y" %}
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
   {% endif %}
 
-  {% if cookiecutter.has_calendar_blueprint == "y" %}
-    # Calendar blueprint dependencies
-  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
-  pod 'GoogleSignIn', '~> 4.4.0'
+  {% if cookiecutter.has_camera_blueprint == "y" %}
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
   {% endif %}
 
-  {% if cookiecutter.has_camera_blueprint == "y" %}
-  pod 'react-native-camera', path: '../node_modules/react-native-camera'
-  {% endif %}
 
   target '{{cookiecutter.project_slug}}Tests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  post_install do |installer|
-    installer.pods_project.targets.each do |target|
-  
-      # Add your custom iterators here
-  
-      
-  
-      if target.name == "React"
-        target.remove_from_project
-      end
-    end
+  use_native_modules!
+end
+
+target '{{cookiecutter.project_slug}}-tvOS' do
+  # Pods for {{cookiecutter.project_slug}}-tvOS
+
+  target '{{cookiecutter.project_slug}}-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
   end
-  
-  
-    use_native_modules!
-  end
+
+end

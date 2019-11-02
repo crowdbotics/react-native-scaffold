@@ -1,14 +1,12 @@
 import axios from "axios";
 import { appConfig } from "../config/app";
 
-import { version } from "../../package.json";
-
 const APP_PLATFORM = "Mobile";
 
 export const request = axios.create({
   headers: {
     app_platform: APP_PLATFORM,
-    app_version: version
+    app_version: 1
   }
 });
 

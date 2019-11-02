@@ -3,11 +3,13 @@ export const installed_blueprints = [
     name: "SplashScreen",
     human_name: "Splash Screen"
   },
+  {% if cookiecutter.has_email_auth_blueprint == "y" %}
   {
     name: "EmailAuth",
     human_name: "EmailAuth",
     access_route: "EmailAuth"
   },
+  {% endif %}
   {% if cookiecutter.has_calendar_blueprint == "y" %}
   {
     name: "Google Maps",
@@ -29,11 +31,11 @@ export const installed_blueprints = [
     access_route: "Tutorial"
   },
   {% endif %}
-  {% if cookiecutter.has_camera_blueprint == "y" %}
+  {% if cookiecutter.has_messenger_blueprint == "y" %}
   {
-  name: "Camera",
-  human_name: "Camera",
-  access_route: "UserCamera"
+  name: "MessengerChat",
+  human_name: "MessengerChat",
+  access_route: "Messenger"
   },
   {% endif %}
   // you can add more installed blueprints here

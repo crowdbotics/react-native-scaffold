@@ -7,7 +7,7 @@ import {scaleModerate, scaleVertical} from '../../../../utils/scale';
 import {styles} from '../styles';
 import * as emailAuthActions from '../../redux/actions';
 import ErrorBox from '../../../../components/ErrorBox';
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class SignIn extends Component {
   constructor(props) {
@@ -64,6 +64,8 @@ class SignIn extends Component {
     const {email, password} = this.state;
     // todo add disable buttons on submit
     login({email, password});
+
+    this.setState({email: '', password: ''});
   }
 
   goToPasswordRecover() {
@@ -101,6 +103,8 @@ class SignIn extends Component {
           size="large"
           style={styles.input}
           keyboardType="email-address"
+          textStyle={styles.text}
+          autoCapitalize="none"
         />
         <Input
           value={password}
@@ -109,9 +113,13 @@ class SignIn extends Component {
           size="large"
           style={styles.input}
           secureTextEntry={true}
+          textStyle={styles.text}
+          autoCapitalize="none"
         />
 
-        <Text style={[styles.textRow, styles.boldText]} onPress={this.goToPasswordRecover}>
+        <Text
+          style={[styles.textRow, styles.boldText]}
+          onPress={this.goToPasswordRecover}>
           Forgot password?
         </Text>
 

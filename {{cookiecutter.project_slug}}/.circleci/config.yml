@@ -85,6 +85,11 @@ jobs:
           path: test-results
 
       - run:
+          name: Build and upload to appetize.io
+          command: bundle exec fastlane deployAppetizeFeature
+          working_directory: android
+
+      - run:
           name: Webhook Success
           command: bash ../.circleci/webhook_callback.sh "success"
           when: on_success

@@ -109,8 +109,7 @@ jobs:
           fingerprints:
 {%- endraw %}
             - "{{ cookiecutter.ssh_key_fingerprint }}"
-{% raw -%}
-
+{% raw %}
       - checkout
 
       - run:

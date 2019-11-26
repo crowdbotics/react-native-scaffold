@@ -9,6 +9,7 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
+# Opt out of sending fastlane usage metrics
 opt_out_usage
 
 default_platform(:ios)

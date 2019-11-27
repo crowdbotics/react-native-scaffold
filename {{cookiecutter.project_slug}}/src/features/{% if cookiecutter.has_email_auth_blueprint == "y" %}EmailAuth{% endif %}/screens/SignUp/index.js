@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Image, Dimensions } from "react-native";
-import { Text, Layout, Button, Input } from "react-native-ui-kitten";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Image, Dimensions} from 'react-native';
+import {Text, Layout, Button, Input} from 'react-native-ui-kitten';
 
-import { scaleModerate } from "../../../../utils/scale";
-import { styles } from "../styles";
-import * as emailAuthActions from "../../redux/actions";
-import ErrorBox from "../../../../components/ErrorBox";
+import {scaleModerate} from '../../../../utils/scale';
+import {styles} from '../styles';
+import * as emailAuthActions from '../../redux/actions';
+import ErrorBox from '../../../../components/ErrorBox';
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
-      validationErrors: {}
+      email: '',
+      password: '',
+      validationErrors: {},
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -22,31 +22,31 @@ class SignUp extends Component {
   }
 
   renderImage = () => {
-    const screenSize = Dimensions.get("window");
+    const screenSize = Dimensions.get('window');
     const imageSize = {
       width: screenSize.width,
-      height: screenSize.height - scaleModerate(500, 1)
+      height: screenSize.height - scaleModerate(500, 1),
     };
     return (
       <Image
         style={[styles.image, imageSize]}
-        source={require("../../../../assets/images/backgroundLoginV1DarkTheme.png")}
+        source={require('../../../../assets/images/backgroundLoginV1DarkTheme.png')}
       />
     );
   };
 
   handleEmailChange(email) {
-    this.setState({ email });
+    this.setState({email});
     // todo add email validation
   }
 
   handlePasswordChange(password) {
-    this.setState({ password });
+    this.setState({password});
     // todo change keyboard and add validation
   }
 
   renderErrors() {
-    const { signUpErrors } = this.props;
+    const {signUpErrors} = this.props;
     if (signUpErrors) {
       return <ErrorBox errorText={signUpErrors} />;
     }
@@ -54,17 +54,19 @@ class SignUp extends Component {
 
   submitSignUp() {
     const {
-      actions: { signUp }
+      actions: {signUp},
     } = this.props;
 
-    const { email, password } = this.state;
+    const {email, password} = this.state;
     // todo add disable buttons on submit
-    signUp({ email, password });
+    signUp({email, password});
+
+    this.setState({email: '', password: ''});
   }
 
   render() {
-    const { email, password } = this.state;
-    const { errors } = this.props;
+    const {email, password} = this.state;
+    const {errors} = this.props;
 
     return (
       <Layout style={styles.screen}>
@@ -76,6 +78,8 @@ class SignUp extends Component {
           size="large"
           style={styles.input}
           keyboardType="email-address"
+          textStyle={styles.text}
+          autoCapitalize="none"
         />
         <Input
           value={password}
@@ -84,6 +88,8 @@ class SignUp extends Component {
           size="large"
           style={styles.input}
           secureTextEntry={true}
+          textStyle={styles.text}
+          autoCapitalize="none"
         />
 
         <Button style={styles.actionButon} onPress={this.submitSignUp}>
@@ -97,18 +103,18 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-  signUpErrors: state.EmailAuth.errors.SignUp
+  signUpErrors: state.EmailAuth.errors.SignUp,
 });
 
 const mapDispatchToProps = dispatch => ({
   actions: {
-    signUp: ({ email, password }) => {
-      dispatch(emailAuthActions.signUp({ email, password }));
-    }
-  }
+    signUp: ({email, password}) => {
+      dispatch(emailAuthActions.signUp({email, password}));
+    },
+  },
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(SignUp);

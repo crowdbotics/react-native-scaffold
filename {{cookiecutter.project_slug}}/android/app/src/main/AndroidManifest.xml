@@ -3,12 +3,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    {% if cookiecutter.has_camera_blueprint == "y" %}
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    {% endif %}
 
     <application
       android:name=".MainApplication"
@@ -18,11 +16,9 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme">
 
-      {% if cookiecutter.has_maps_blueprint == "y" %}
       <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyCA63HJpE1k9ExLBvLZaGeoBZ0yvoPlzsI"/>
-      {% endif %}
 
       <activity
         android:name=".MainActivity"

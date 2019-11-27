@@ -1,3 +1,4 @@
+source 'https://cdn.cocoapods.org/'
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
@@ -29,16 +30,12 @@ target '{{cookiecutter.project_slug}}' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  {% if cookiecutter.has_maps_blueprint == "y" %}
   rn_maps_path = '../node_modules/react-native-maps'
   pod 'react-native-google-maps', :path => rn_maps_path
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
-  {% endif %}
 
-  {% if cookiecutter.has_camera_blueprint == "y" %}
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
-  {% endif %}
 
 
   target '{{cookiecutter.project_slug}}Tests' do
@@ -56,5 +53,4 @@ target '{{cookiecutter.project_slug}}-tvOS' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end

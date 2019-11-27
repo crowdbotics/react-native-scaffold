@@ -21,7 +21,6 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	
-	{% if cookiecutter.has_calendar_blueprint == "y" %}
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -33,7 +32,6 @@
 			</array>
 		</dict>
 	</array>
-	{% endif %}
 	
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -72,7 +70,6 @@
 		<string>Zocial.ttf</string>
 	</array>
 
-	{% if cookiecutter.has_camera_blueprint == "y" %}
 	<key>NSCameraUsageDescription</key>
 	<string>Your message to user when the camera is accessed for the first time</string>
 
@@ -81,7 +78,9 @@
 
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Your message to user when the microphone is accessed for the first time</string>
-    {% endif %}
+
+	<key>NSPhotoLibraryAddUsageDescription</key>
+  <string>$(PRODUCT_NAME) would like to save photos to your photo gallery</string>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>

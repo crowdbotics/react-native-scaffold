@@ -9,9 +9,9 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
+# Opt out of sending fastlane usage metrics
+opt_out_usage
 
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
 require 'httparty'
 
 base_name = "{{cookiecutter.project_slug}}"

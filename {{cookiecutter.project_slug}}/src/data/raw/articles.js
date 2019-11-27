@@ -146,7 +146,7 @@ const articles = [{
   photo: require('../img/photo17.png'),
   type: 'post',
   time: -300,
-  title: 'My Little Kitten',
+  header: 'My Little Kitten',
   text: 'I have got a cat. Her name is Matilda. She is quite old for a cat. She is eleven years old. Matilda is very' +
   ' fluffy. Her back is black and her belly and chest are white. She also has a black muzzle with long white whiskers. ' +
   'Her legs and paws are white. Matilda has big eyes. Her eyes are light green, but they become yellow in bright sunlight. I love my cat.',

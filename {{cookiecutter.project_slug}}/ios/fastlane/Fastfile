@@ -9,16 +9,14 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-fastlane_require 'httparty'
-
+# Opt out of sending fastlane usage metrics
 opt_out_usage
+
+fastlane_require 'httparty'
 
 default_platform(:ios)
 
-app_name = "{{cookiecutter.project_slug}}"
+app_name = "{{cookiecutter.project_dash_slug}}"
 base_name = "{{cookiecutter.project_slug}}"
 team_name = "Crowdbotics Corporation"
 team_id = "6YKR59QXKM"
@@ -41,7 +39,6 @@ platform :ios do
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
-
     produce(
       app_identifier: identifier,
       app_name: app_name,
@@ -55,7 +52,7 @@ platform :ios do
       app_identifier: identifier
     )
     update_project_team(path: filename, teamid: team_id)
-    match(type: "appstore", readonly: is_ci)
+    match(type: "appstore", readonly: false)
     disable_automatic_code_signing(
       path: filename,
       code_sign_identity: "iPhone Distribution: #{team_name} (#{team_id})"

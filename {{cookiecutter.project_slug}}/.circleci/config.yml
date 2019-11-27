@@ -1,4 +1,4 @@
-{% raw %}
+{% raw -%}
 version: 2
 jobs:
   node:
@@ -64,7 +64,9 @@ jobs:
       - restore_cache:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
 
-      - run: bundle install
+      - run:
+          command: bundle install
+          working_directory: android
 
       - save_cache:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
@@ -110,9 +112,9 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-
-            - "c5:bd:6d:0b:a1:39:97:83:ca:b5:13:59:14:ff:49:40"
-
+{%- endraw %}
+            - "{{ cookiecutter.ssh_key_fingerprint }}"
+{% raw %}
       - checkout
 
       - run:
@@ -151,14 +153,11 @@ jobs:
           paths:
             - vendor/bundle
 
-      - run:
-          name: Install CocoaPod Spec 
-          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run:
-          name: Install Ruby and Fastlane
-          command: |
-           brew install ruby
-           gem install fastlane
+      - restore_cache:
+          key: 1-pods-{{ checksum "ios/Podfile.lock" }}
+          paths:
+            - ios/Pods
+
       - run:
           name: Update CocaPods dependencies
           command: pod install --verbose
@@ -166,7 +165,7 @@ jobs:
           timeout: 1200
 
       - save_cache:
-          key: 1-pods-{{ checksum "Podfile.lock" }}
+          key: 1-pods-{{ checksum "ios/Podfile.lock" }}
           paths:
             - ios/Pods
 
@@ -216,5 +215,4 @@ workflows:
       - ios:
           requires:
             - node
-
-{% endraw %}
+{%- endraw %}

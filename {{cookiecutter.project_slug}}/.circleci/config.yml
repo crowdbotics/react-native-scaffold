@@ -88,7 +88,7 @@ jobs:
 
       - run:
           name: Build and upload to appetize.io
-          command: bundle exec fastlane deployAppetizeFeature
+          command: bundle exec fastlane deploy_appetize
           working_directory: android
 
       - run:
@@ -103,7 +103,7 @@ jobs:
 
   ios:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.1.0"
     working_directory: ~/build
 
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
@@ -119,7 +119,7 @@ jobs:
 
       - run:
           name: set Ruby version
-          command:  echo "ruby-2.4" > ~/.ruby-version
+          command:  echo "ruby-2.5" > ~/.ruby-version
 
       - restore_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
@@ -191,7 +191,7 @@ jobs:
 
       - run:
           name: Build and upload to appetize.io
-          command: bundle exec fastlane deployAppetizeFeature
+          command: bundle exec fastlane deploy_appetize
           working_directory: ios
 
       - run:

@@ -21,7 +21,7 @@ base_name = "{{cookiecutter.project_slug}}"
 team_name = "Crowdbotics Corporation"
 team_id = "6YKR59QXKM"
 filename = "#{base_name}.xcodeproj"
-workspaceName = "#{base_name}.xcworkspace"
+workspace_name = "#{base_name}.xcworkspace"
 identifier = "com.crowdbotics.#{app_name}"
 
 ENV["APPETIZE_TOKEN"] = "{{cookiecutter.appetize_token_api}}"
@@ -34,11 +34,11 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :tests do
-    run_tests(workspace: workspaceName, scheme: base_name, build_for_testing: true)
+    run_tests(workspace: workspace_name, scheme: base_name, build_for_testing: true)
   end
 
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
+  desc "Pre-build setup"
+  lane :build_setup do
     produce(
       app_identifier: identifier,
       app_name: app_name,
@@ -57,6 +57,11 @@ platform :ios do
       path: filename,
       code_sign_identity: "iPhone Distribution: #{team_name} (#{team_id})"
     )
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    build_setup
+
     settings_to_override = {
       BUNDLE_IDENTIFIER: identifier,
       PROVISIONING_PROFILE_SPECIFIER: "match AppStore #{identifier}"
@@ -73,65 +78,58 @@ platform :ios do
   end
 
   desc "Deployment to Appetize"
-  lane :deployAppetizeFeature do
-    Dir.chdir "../" do
-      tmp_path = "/tmp/fastlane_build"
+  lane :deploy_appetize do
+    build_setup
 
-      #seems not possible tu use gym here because is only made to do ipa archive
-      xcodebuild_configs = {
-        configuration: "Release",
-        sdk: "iphonesimulator",
-        derivedDataPath: tmp_path,
-        xcargs: "CONFIGURATION_BUILD_DIR=" + tmp_path,
-        scheme: "#{ENV["APP_IOS_SCHEME"]}"
-      }
+    tmp_path = "/tmp/fastlane_build"
 
-      Actions::XcodebuildAction.run(xcodebuild_configs)
+    # Not possible to use gym here because it will only create an ipa archive
+    xcodebuild(
+      configuration: "Release",
+      sdk: "iphonesimulator",
+      derivedDataPath: tmp_path,
+      xcargs: "CONFIGURATION_BUILD_DIR=#{tmp_path}",
+      scheme: base_name
+    )
 
-      app_path = Dir[File.join(tmp_path, "**", "*.app")].last
+    app_path = Dir[File.join(tmp_path, "**", "*.app")].last
 
-      zipped_bundle = Actions::ZipAction.run(path: app_path, output_path: File.join(tmp_path, "Result.zip"))
+    zipped_bundle = zip(path: app_path, output_path: File.join(tmp_path, "app.zip"))
 
-      appetize(
-        path: zipped_bundle,
-        api_token: "#{ENV["APPETIZE_TOKEN"]}",
-        public_key: getAppetizePublicKey({platform: "ios"}) ,
-        note: base_name,
-      )
+    appetize(
+      path: zipped_bundle,
+      public_key: get_appetize_public_key({platform: "ios"}),
+      note: base_name
+    )
 
-      FileUtils.rm_rf(tmp_path)
-
-    end
-
-    updateURL(
-      context: 'Appetize iOs',
+    update_url(
+      context: 'Appetize iOS',
       state: 'success',
-      url: "#{lane_context[SharedValues::APPETIZE_APP_URL]}",
-      description: 'iOs build succeed'
+      url: lane_context[SharedValues::APPETIZE_APP_URL],
+      description: 'iOS build succeed'
     )
   end
 
   # get the publicKey of the appetizeApp corresponding to your base_name
-  private_lane :getAppetizePublicKey do |options|
-    publicKey = ""
+  private_lane :get_appetize_public_key do |options|
+    public_key = ""
 
-    response = HTTParty.get("https://#{ENV["APPETIZE_TOKEN"]}@api.appetize.io/v1/apps")
+    response = HTTParty.get("https://#{ENV["APPETIZE_API_TOKEN"]}@api.appetize.io/v1/apps")
     json = JSON.parse(response.body)
 
     # Find branch name in notes
     json["data"].each do |value|
       if value["note"] == base_name && value["platform"] == options[:platform]
-        publicKey = value["publicKey"]
+        public_key = value["publicKey"]
       end
     end
 
-    publicKey
+    public_key
   end
 
   # Update app URL in CB app DB
-  private_lane :updateURL do |options|
-
-    puts "URL: " + options[:url]
+  private_lane :update_url do |options|
+    puts "URL: #{options[:url]}"
 
     #post to CB API
   end

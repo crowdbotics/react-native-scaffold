@@ -20,7 +20,7 @@ team_name = "Crowdbotics Corporation"
 team_id = "6YKR59QXKM"
 filename = "#{base_name}.xcodeproj"
 workspaceName = "#{base_name}.xcworkspace"
-identifier = "com.crowdbotics.#{base_name}"
+identifier = "com.crowdbotics.#{app_name}"
 
 platform :ios do
   before_all do

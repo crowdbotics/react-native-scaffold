@@ -10,6 +10,5 @@
   "has_calendar_blueprint": "y",
   "has_camera_blueprint": "y",
   "has_messenger_blueprint": "y",
-  "has_tutorial_blueprint": "y",
-  "appetize_token_api": ""
+  "has_tutorial_blueprint": "y"
 }

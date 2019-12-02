@@ -1,6 +1,6 @@
-import { dark } from "@eva-design/eva";
+import { dark, light } from "@eva-design/eva";
 
 export const crowdboticsTheme = {
-  ...dark
+  ...light
   //todo add custom colors here
 };

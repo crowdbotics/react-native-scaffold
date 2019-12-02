@@ -5,6 +5,7 @@ import { combineReducers } from "redux";
  */
 {% if cookiecutter.has_email_auth_blueprint == "y" %}import { EmailAuthReducer } from "../features/EmailAuth/redux/reducers";{% endif %}
 {% if cookiecutter.has_calendar_blueprint == "y" %}import { CalendarReducer } from "../features/Calendar/redux/reducers";{% endif %}
+//@BlueprintReduxImportInsertion
 
 export const combinedReducers = combineReducers({
   blank: (state, action) => {
@@ -13,4 +14,6 @@ export const combinedReducers = combineReducers({
   },
   {% if cookiecutter.has_email_auth_blueprint == "y" %}EmailAuth: EmailAuthReducer,{% endif %}
   {% if cookiecutter.has_calendar_blueprint == "y" %}Calendar: CalendarReducer,{% endif %}
+  //@BlueprintReduxCombineInsertion
+
 });

@@ -12,6 +12,8 @@
 # Opt out of sending fastlane usage metrics
 opt_out_usage
 
+fastlane_require 'httparty'
+
 default_platform(:ios)
 
 app_name = "{{cookiecutter.project_dash_slug}}"
@@ -19,7 +21,7 @@ base_name = "{{cookiecutter.project_slug}}"
 team_name = "Crowdbotics Corporation"
 team_id = "6YKR59QXKM"
 filename = "#{base_name}.xcodeproj"
-workspaceName = "#{base_name}.xcworkspace"
+workspace_name = "#{base_name}.xcworkspace"
 identifier = "com.crowdbotics.#{app_name}"
 
 platform :ios do
@@ -29,11 +31,11 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :tests do
-    run_tests(workspace: workspaceName, scheme: base_name, build_for_testing: true)
+    run_tests(workspace: workspace_name, scheme: base_name, build_for_testing: true)
   end
 
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
+  desc "Pre-build setup"
+  lane :build_setup do
     produce(
       app_identifier: identifier,
       app_name: app_name,
@@ -52,6 +54,12 @@ platform :ios do
       path: filename,
       code_sign_identity: "iPhone Distribution: #{team_name} (#{team_id})"
     )
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    build_setup
+
     settings_to_override = {
       BUNDLE_IDENTIFIER: identifier,
       PROVISIONING_PROFILE_SPECIFIER: "match AppStore #{identifier}"
@@ -59,11 +67,89 @@ platform :ios do
     build_app(
       scheme: base_name,
       export_method: "app-store",
-      xcargs: settings_to_override,
+      xcargs: settings_to_override
     )
     upload_to_testflight(
       email: "{{cookiecutter.owner_email}}",
       beta_app_description: "Beta version of #{app_name} uploaded by Crowdbotics"
     )
   end
+
+  desc "Deployment to Appetize"
+  lane :deploy_appetize do
+    build_setup
+
+    tmp_path = "/tmp/fastlane_build"
+
+    # Not possible to use gym here because it will only create an ipa archive
+    xcodebuild(
+      configuration: "Release",
+      sdk: "iphonesimulator",
+      derivedDataPath: tmp_path,
+      xcargs: "CONFIGURATION_BUILD_DIR=#{tmp_path}",
+      scheme: base_name
+    )
+
+    app_path = Dir[File.join(tmp_path, "**", "*.app")].last
+
+    zipped_bundle = zip(path: app_path, output_path: File.join(tmp_path, "app.zip"))
+
+    public_key = get_appetize_public_key("ios", base_name)
+
+    appetize(
+      path: zipped_bundle,
+      public_key: public_key,
+      note: base_name
+    )
+
+    update_url(
+      platform: 'ios',
+      public_key: public_key || lane_context[SharedValues::APPETIZE_PUBLIC_KEY],
+      url: lane_context[SharedValues::APPETIZE_APP_URL]
+    )
+  end
+
+  # Update app URL in CB app DB
+  private_lane :update_url do |options|
+    url = "https://#{ENV['WEBHOOK_HOSTNAME']}/api/v2/apps/#{ENV['PROJECT_ID']}/metadata-webhook/"
+    data = {
+      provider: "circleci",
+      metadata: {
+        appetize: {
+          options[:platform] => {
+            public_key: options[:public_key],
+            url: options[:url]
+          }
+        }
+      }
+    }
+    headers = {
+      "Authorization": "Api-Key #{ENV['WEBHOOK_API_KEY']}",
+      "Content-Type": "application/json"
+    }
+    response = HTTParty.post(url, body: data.to_json, headers: headers)
+    puts "API response: #{response.code} #{response.body}"
+
+    response.success?
+  end
+end
+
+# get the publicKey of the appetizeApp corresponding to your base_name
+def get_appetize_public_key(platform, base_name)
+  return ENV['APPETIZE_PUBLIC_KEY'] unless ENV['APPETIZE_PUBLIC_KEY'].nil?
+
+  response = HTTParty.get("https://#{ENV['APPETIZE_API_TOKEN']}@api.appetize.io/v1/apps")
+
+  if response.success?
+    json = JSON.parse(response.body)
+
+    # Find branch name in notes
+    json["data"].each do |value|
+      if value["note"] == base_name && value["platform"] == platform
+        return value["publicKey"]
+      end
+    end
+  end
+
+  nil
 end

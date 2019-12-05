@@ -80,11 +80,16 @@ jobs:
             bundle exec fastlane test
             mv fastlane/report.xml test-results/fastlane
 
-      - store_test_results:
-          path: test-results
+      #- store_test_results:
+      #    path: test-results
 
-      - store_artifacts:
-          path: test-results
+      #- store_artifacts:
+      #    path: test-results
+
+      - run:
+          name: Build and upload to appetize.io
+          command: bundle exec fastlane deploy_appetize
+          working_directory: android
 
       - run:
           name: Webhook Success
@@ -98,7 +103,7 @@ jobs:
 
   ios:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.1.0"
     working_directory: ~/build
 
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
@@ -114,7 +119,7 @@ jobs:
 
       - run:
           name: set Ruby version
-          command:  echo "ruby-2.4" > ~/.ruby-version
+          command:  echo "ruby-2.5" > ~/.ruby-version
 
       - restore_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
@@ -178,15 +183,15 @@ jobs:
             mv fastlane/report.xml test-results/fastlane
             mv fastlane/test_output/report.junit test-results/xcode/junit.xml
 
-      - store_test_results:
-          path: ios/test-results
+      #- store_test_results:
+      #    path: ios/test-results
 
-      - store_artifacts:
-          path: ios/test-results
+      #- store_artifacts:
+      #    path: ios/test-results
 
       - run:
-          name: Build and upload to testflight
-          command: bundle exec fastlane beta
+          name: Build and upload to appetize.io
+          command: bundle exec fastlane deploy_appetize
           working_directory: ios
 
       - run:

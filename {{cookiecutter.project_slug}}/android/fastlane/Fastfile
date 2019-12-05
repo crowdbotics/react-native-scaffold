@@ -12,6 +12,10 @@
 # Opt out of sending fastlane usage metrics
 opt_out_usage
 
+fastlane_require 'httparty'
+
+base_name = "{{cookiecutter.project_slug}}"
+
 default_platform(:android)
 
 platform :android do
@@ -33,4 +37,72 @@ platform :android do
   lane :deploy do
     upload_to_play_store(track: "beta", track_promote_to: "production")
   end
+
+  desc "Deployment to Appetize"
+  lane :deploy_appetize do
+    gradle(task: "assemble", build_type: "Release")
+    public_key = get_appetize_public_key("android", base_name)
+    appetize(
+      path: get_last_apk_path,
+      public_key: public_key,
+      platform: 'android',
+      note: base_name
+    )
+
+    update_url(
+      platform: 'android',
+      public_key: public_key || lane_context[SharedValues::APPETIZE_PUBLIC_KEY],
+      url: lane_context[SharedValues::APPETIZE_APP_URL]
+    )
+  end
+
+  # Update app URL in CB app DB
+  private_lane :update_url do |options|
+    url = "https://#{ENV['WEBHOOK_HOSTNAME']}/api/v2/apps/#{ENV['PROJECT_ID']}/metadata-webhook/"
+    data = {
+      provider: "circleci",
+      metadata: {
+        appetize: {
+          options[:platform] => {
+            public_key: options[:public_key],
+            url: options[:url]
+          }
+        }
+      }
+    }
+    headers = {
+      "Authorization": "Api-Key #{ENV['WEBHOOK_API_KEY']}",
+      "Content-Type": "application/json"
+    }
+    response = HTTParty.post(url, body: data.to_json, headers: headers)
+    puts "API response: #{response.code} #{response.body}"
+
+    response.success?
+  end
+end
+
+# get the publicKey of the appetizeApp corresponding to your base_name
+def get_appetize_public_key(platform, base_name)
+  return ENV['APPETIZE_PUBLIC_KEY'] unless ENV['APPETIZE_PUBLIC_KEY'].nil?
+
+  response = HTTParty.get("https://#{ENV['APPETIZE_API_TOKEN']}@api.appetize.io/v1/apps")
+
+  if response.success?
+    json = JSON.parse(response.body)
+
+    # Find branch name in notes
+    json["data"].each do |value|
+      if value["note"] == base_name && value["platform"] == platform
+        return value["publicKey"]
+      end
+    end
+  end
+
+  nil
+end
+
+def get_last_apk_path
+  last_apk_path = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+  puts "last_apk_path: #{last_apk_path}"
+  last_apk_path
 end

@@ -1,14 +1,6 @@
 export const installed_blueprints = [
 
 
-  {% if cookiecutter.has_maps_blueprint == "y" %}
-  {
-    name: "Calendar",
-    human_name: "Calendar",
-    access_route: "Calendar",
-    icon_name: 'calendar',
-  },
-  {% endif %}
   {% if cookiecutter.has_tutorial_blueprint == "y" %}
   {
     name: "Tutorial",

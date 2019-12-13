@@ -5,7 +5,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import SplashScreen from "../features/SplashScreen";
 import SideMenu from './sideMenu';
 
-{% if cookiecutter.has_maps_blueprint == "y" %}import { GoogleMapsNavigator } from "../features/MapsScreen/navigator";{% endif %}
+
 
 {% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
 {% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
@@ -22,11 +22,7 @@ const AppNavigator = {
     SplashScreen: {
       screen: SplashScreen
     },
-    {% if cookiecutter.has_maps_blueprint == "y" %}
-    MapsScreen: {
-      screen: GoogleMapsNavigator
-    },
-    {% endif %}
+
 
 
     {% if cookiecutter.has_tutorial_blueprint == "y" %}

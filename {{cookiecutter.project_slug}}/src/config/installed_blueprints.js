@@ -24,14 +24,7 @@ export const installed_blueprints = [
     icon_name: 'question-circle',
   },
   {% endif %}
-  {% if cookiecutter.has_camera_blueprint == "y" %}
-  {
-    name: "Camera",
-    human_name: "Camera",
-    access_route: "UserCamera",
-    icon_name: 'camera',
-  },
-  {% endif %}
+  
   {% if cookiecutter.has_messenger_blueprint == "y" %}
   {
   name: "MessengerChat",

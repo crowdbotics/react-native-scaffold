@@ -10,7 +10,7 @@ import SideMenu from './sideMenu';
 {% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
 {% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
 {% if cookiecutter.has_email_auth_blueprint == "y" %}import {EmailAuthNavigator} from '../features/EmailAuth/navigator';{% endif %}
-{% if cookiecutter.has_camera_blueprint == "y" %}import { CameraNavigator } from "../features/UserCamera/navigator";{% endif %}
+
 
 //@BlueprintImportInsertion
 
@@ -38,11 +38,7 @@ const AppNavigator = {
       screen: TutorialNavigator
     },
     {% endif %}
-    {% if cookiecutter.has_camera_blueprint == "y" %}
-    UserCamera: {
-      screen: CameraNavigator
-    },
-    {% endif %}
+
     {% if cookiecutter.has_messenger_blueprint == "y" %}
     Messenger: {
       screen: MessengerNavigator

@@ -8,7 +8,7 @@ import SideMenu from './sideMenu';
 
 
 {% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
-{% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
+
 
 
 
@@ -31,11 +31,6 @@ const AppNavigator = {
     },
     {% endif %}
 
-    {% if cookiecutter.has_messenger_blueprint == "y" %}
-    Messenger: {
-      screen: MessengerNavigator
-    },
-    {% endif %}
 
     //@BlueprintNavigationInsertion
 

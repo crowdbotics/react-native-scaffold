@@ -10,14 +10,7 @@ export const installed_blueprints = [
   },
   {% endif %}
   
-  {% if cookiecutter.has_messenger_blueprint == "y" %}
-  {
-  name: "MessengerChat",
-  human_name: "Chat",
-  access_route: "Messenger",
-  icon_name: 'comments',
-  },
-  {% endif %}
+
 
   //@BlueprintInsertion
 

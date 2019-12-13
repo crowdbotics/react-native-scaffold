@@ -7,14 +7,7 @@ export const installed_blueprints = [
     icon_name: 'envelope-o',
   },
   {% endif %}
-  {% if cookiecutter.has_calendar_blueprint == "y" %}
-  {
-    name: "Google Maps",
-    human_name: "Maps",
-    access_route: "MapsScreen",
-    icon_name: 'map',
-  },
-  {% endif %}
+
   {% if cookiecutter.has_maps_blueprint == "y" %}
   {
     name: "Calendar",

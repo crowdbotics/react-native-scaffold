@@ -6,7 +6,7 @@ import SplashScreen from "../features/SplashScreen";
 import SideMenu from './sideMenu';
 
 {% if cookiecutter.has_maps_blueprint == "y" %}import { GoogleMapsNavigator } from "../features/MapsScreen/navigator";{% endif %}
-{% if cookiecutter.has_calendar_blueprint == "y" %}import CalendarNavigator from "../features/Calendar/navigator";{% endif %}
+
 {% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
 {% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
 {% if cookiecutter.has_email_auth_blueprint == "y" %}import {EmailAuthNavigator} from '../features/EmailAuth/navigator';{% endif %}
@@ -27,11 +27,7 @@ const AppNavigator = {
       screen: GoogleMapsNavigator
     },
     {% endif %}
-    {% if cookiecutter.has_calendar_blueprint == "y" %}
-    Calendar: {
-      screen: CalendarNavigator
-    },
-    {% endif %}
+
     {% if cookiecutter.has_email_auth_blueprint == "y" %}
     EmailAuth: {
       screen: EmailAuthNavigator,

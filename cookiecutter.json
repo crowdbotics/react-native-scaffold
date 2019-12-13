@@ -4,6 +4,5 @@
   "project_dash_slug": "{{ cookiecutter.project_slug|replace('_', '-') }}",
   "owner_email": "",
   "ssh_key_fingerprint": "",
-  "has_login_blueprint": "y",
-  "has_tutorial_blueprint": "y"
+  "has_login_blueprint": "y"
 }

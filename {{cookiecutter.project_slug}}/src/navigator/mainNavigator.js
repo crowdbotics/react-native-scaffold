@@ -4,14 +4,6 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 
 import SplashScreen from "../features/SplashScreen";
 import SideMenu from './sideMenu';
-
-
-
-{% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
-
-
-
-
 //@BlueprintImportInsertion
 
 /**
@@ -22,16 +14,6 @@ const AppNavigator = {
     SplashScreen: {
       screen: SplashScreen
     },
-
-
-
-    {% if cookiecutter.has_tutorial_blueprint == "y" %}
-    Tutorial: {
-      screen: TutorialNavigator
-    },
-    {% endif %}
-
-
     //@BlueprintNavigationInsertion
 
     /** new navigators can be added here */

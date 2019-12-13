@@ -1,12 +1,5 @@
 export const installed_blueprints = [
-  {% if cookiecutter.has_email_auth_blueprint == "y" %}
-  {
-    name: "EmailAuth",
-    human_name: "EmailAuth",
-    access_route: "EmailAuth",
-    icon_name: 'envelope-o',
-  },
-  {% endif %}
+
 
   {% if cookiecutter.has_maps_blueprint == "y" %}
   {

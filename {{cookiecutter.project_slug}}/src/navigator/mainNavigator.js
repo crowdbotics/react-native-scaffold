@@ -9,7 +9,7 @@ import SideMenu from './sideMenu';
 
 {% if cookiecutter.has_tutorial_blueprint == "y" %}import TutorialNavigator from "../features/Tutorial/navigator";{% endif %}
 {% if cookiecutter.has_messenger_blueprint == "y" %}import { MessengerNavigator } from "../features/Messenger/navigator";{% endif %}
-{% if cookiecutter.has_email_auth_blueprint == "y" %}import {EmailAuthNavigator} from '../features/EmailAuth/navigator';{% endif %}
+
 
 
 //@BlueprintImportInsertion
@@ -28,11 +28,7 @@ const AppNavigator = {
     },
     {% endif %}
 
-    {% if cookiecutter.has_email_auth_blueprint == "y" %}
-    EmailAuth: {
-      screen: EmailAuthNavigator,
-    },
-    {% endif %}
+
     {% if cookiecutter.has_tutorial_blueprint == "y" %}
     Tutorial: {
       screen: TutorialNavigator

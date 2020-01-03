@@ -656,7 +656,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@eva-design/dss@^1.2.0":
+"@eva-design/dss@^1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@eva-design/dss/-/dss-1.3.1.tgz#b9105b7df1791a89a789a1e617aa39e1066a1415"
   integrity sha512-l6ggdlkDala+uMWlNxK+unonbLwuPjUZykNwK5+XbBrdgrQkgO5c7QXWtM8E2PczWehOLKwsQX7EIf3A7nZaIA==
@@ -666,7 +666,7 @@
   resolved "https://registry.yarnpkg.com/@eva-design/eva/-/eva-1.0.1.tgz#6cf62086481d6506c58f3f33d8b1462f4f337e6e"
   integrity sha512-puz8ejPWvZMTZ0CjzCOASYdW6w9rP8CZ3C4uBqqyerdvIcTKZDoSJ71/DE3WiwSI735gIhZeVANo63lrWfqcUA==
 
-"@eva-design/processor@^1.2.0":
+"@eva-design/processor@^1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@eva-design/processor/-/processor-1.3.1.tgz#178b760037ae9365d78cf78f223c5067ac4c0234"
   integrity sha512-xjPZFkt77bsxWNBmJru0d2t6DZJ/AZUQzTYieY65TB0MV6+Q7kL8cR/SnkPgl2JS7VNkUL9kpG2JHLWn4AhOjA==
@@ -5924,13 +5924,13 @@ react-native-timer@^1.3.6:
   resolved "https://registry.yarnpkg.com/react-native-timer/-/react-native-timer-1.3.6.tgz#726bae63b5cc6f51a0bd3a9227e07ef0836ff350"
   integrity sha512-/YytE7B2YrnYwqNsoQopxg3GtHwrSH/f3pP9UgpHPpJok33YkNX+sSODI6dt75/FLDKQWIYcDHLc3WkdfKKdTg==
 
-react-native-ui-kitten@4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-ui-kitten/-/react-native-ui-kitten-4.2.0.tgz#f8992d4a664d93fc9a3076e5d24fca49ae2fb05e"
-  integrity sha512-3ml/hENusELwY7QtwTfl9Kd3qDaWvSNc3reIujBZniX961fJGRMnVRaEYIETFBm/aG6lN0y4Eu2El3geagcGWg==
+react-native-ui-kitten@4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-ui-kitten/-/react-native-ui-kitten-4.3.2.tgz#5be65c19b20f59327fe6a64271786aa23a3b1dfb"
+  integrity sha512-HoJd8alUwa7jj20y8xo5GU7Qm5xwVcIFh9s2DGPiY+BOie5zKT8JHQm6q9QhBrz2v4ERiDcLCliBcWcaagqTcA==
   dependencies:
-    "@eva-design/dss" "^1.2.0"
-    "@eva-design/processor" "^1.2.0"
+    "@eva-design/dss" "^1.3.1"
+    "@eva-design/processor" "^1.3.1"
     fecha "3.0.3"
     hoist-non-react-statics "^3.2.1"
     lodash.merge "^4.6.1"

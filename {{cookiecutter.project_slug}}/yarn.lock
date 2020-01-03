@@ -5664,10 +5664,10 @@ psl@^1.1.24, psl@^1.1.28:
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.4.0.tgz#5dd26156cdb69fa1fdb8ab1991667d3f80ced7c2"
   integrity sha512-HZzqCGPecFLyoRj5HLfuDSKYTJkAfB5thKBIkRHtGjWwY7p1dAyveIbXIq4tO0KYfDF2tHqPUgY9SDnGm00uFw==
 
-pubnub-react@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/pubnub-react/-/pubnub-react-1.3.1.tgz#46bc1e0a7ec38c224d77451dd1b8d98d88a19155"
-  integrity sha512-RA+gzJFEL3Q5Kwxr5Y3gYAThY1jastJnyvet7avng1zJkzd/LnvgheId6j5BHCa60QMCnZAZZjbA3W2ZCNcv7Q==
+pubnub-react@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/pubnub-react/-/pubnub-react-1.3.2.tgz#822f9bddae91dd6960624426b24d51715626d6c5"
+  integrity sha512-VPHxEO6NDCePvCI8p6KFmGA7KDgED8uCeEoOcptdmnfYZ7lZehCNutoz7CEE2BMMW5+EqdLfpEcy3U9NU50lFQ==
   dependencies:
     immutability-helper "^2.2.0"
     pubnub "^4.24.2"

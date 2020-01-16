@@ -12,7 +12,7 @@
     "preset": "react-native"
   },
   "dependencies": {
-    "@eva-design/eva": "1.0.1",
+    "@eva-design/eva": "1.3.2",
     "@fortawesome/fontawesome-svg-core": "1.2.22",
     "@fortawesome/free-solid-svg-icons": "5.10.2",
     "@fortawesome/react-native-fontawesome": "0.1.0",

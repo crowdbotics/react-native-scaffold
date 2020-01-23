@@ -73,12 +73,12 @@ jobs:
           paths:
             - vendor/bundle
 
-      - run:
-          name: Run tests
-          command: |
-            mkdir -p test-results/fastlane
-            bundle exec fastlane test
-            mv fastlane/report.xml test-results/fastlane
+      #- run:
+      #    name: Run tests
+      #    command: |
+      #      mkdir -p test-results/fastlane
+      #      bundle exec fastlane test
+      #      mv fastlane/report.xml test-results/fastlane
 
       #- store_test_results:
       #    path: test-results

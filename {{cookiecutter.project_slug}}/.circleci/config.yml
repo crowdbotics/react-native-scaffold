@@ -51,7 +51,7 @@ jobs:
           when: on_fail
 
   android:
-    working_directory: ~/build/android
+    working_directory: ~/build
     docker:
       - image: circleci/android:api-28-node
     steps:
@@ -93,12 +93,12 @@ jobs:
 
       - run:
           name: Webhook Success
-          command: bash ../.circleci/webhook_callback.sh "success"
+          command: bash .circleci/webhook_callback.sh "success"
           when: on_success
 
       - run:
           name: Webhook Failed
-          command: bash ../.circleci/webhook_callback.sh "failure"
+          command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
 
   ios:

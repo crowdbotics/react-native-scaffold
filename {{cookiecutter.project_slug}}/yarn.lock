@@ -668,10 +668,10 @@
   resolved "https://registry.yarnpkg.com/@eva-design/dss/-/dss-1.3.1.tgz#b9105b7df1791a89a789a1e617aa39e1066a1415"
   integrity sha512-l6ggdlkDala+uMWlNxK+unonbLwuPjUZykNwK5+XbBrdgrQkgO5c7QXWtM8E2PczWehOLKwsQX7EIf3A7nZaIA==
 
-"@eva-design/eva@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@eva-design/eva/-/eva-1.0.1.tgz#6cf62086481d6506c58f3f33d8b1462f4f337e6e"
-  integrity sha512-puz8ejPWvZMTZ0CjzCOASYdW6w9rP8CZ3C4uBqqyerdvIcTKZDoSJ71/DE3WiwSI735gIhZeVANo63lrWfqcUA==
+"@eva-design/eva@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@eva-design/eva/-/eva-1.4.0.tgz#2a9f5a19c5a26ed73f6efa98da812abc507e1f6c"
+  integrity sha512-bG+L6oLo0t913ViC1RbJulMGPCCdf1fIMghTLTPA90u/eAZEt1iyfZyY7tmbmn8hZUx5bENgYkwtQP2u/Hk4NA==
 
 "@eva-design/processor@^1.3.1":
   version "1.3.1"

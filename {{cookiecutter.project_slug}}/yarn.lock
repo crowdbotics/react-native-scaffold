@@ -705,13 +705,13 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.22"
 
-"@fortawesome/react-native-fontawesome@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-native-fontawesome/-/react-native-fontawesome-0.1.0.tgz#10d7dcd7c97481913f81c36f77147340ecbe4273"
-  integrity sha512-NVQmvAe/sKr9WSMSbJv9WZiUiWNOjPpGaprNFkUJOLh7tqogZd41G+5wQ7Z0H4jtgiJDm3RbVSX7DeUDZ8sf+A==
+"@fortawesome/react-native-fontawesome@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-native-fontawesome/-/react-native-fontawesome-0.2.2.tgz#15a1d95c5f4be22cb82e61a2602114bc56605b01"
+  integrity sha512-XKp8339Z8hFYQxkYxDgjlf4FUa25Ilxbx3CEtCKyg2HUoV5qs7PVzo+qykeBOYl58pmkkExJ9fUgzW+ZYN9NLw==
   dependencies:
     humps "^2.0.1"
-    prop-types "^15.6.2"
+    prop-types "^15.7.2"
 
 "@hapi/address@2.x.x":
   version "2.1.2"

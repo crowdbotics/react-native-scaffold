@@ -121,8 +121,13 @@ jobs:
       - checkout
 
       - run:
+          name: Check if app has a paid plan
+          command: |
+            [ "$HAS_PAID_PLAN" != 1 ] && exit 1
+
+      - run:
           name: set Ruby version
-          command:  echo "ruby-2.5" > ~/.ruby-version
+          command: echo "ruby-2.5" > ~/.ruby-version
 
       - restore_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
@@ -180,7 +185,6 @@ jobs:
       - run:
           name: Set up test results
           working_directory: ios
-          when: always
           command: |
             mkdir -p test-results/fastlane test-results/xcode
             mv fastlane/report.xml test-results/fastlane

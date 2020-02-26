@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# Ignore iOS error if there is no paid plan
+if [ "$CIRCLE_JOB" == "ios" ] && [ "$HAS_PAID_PLAN" != 1 ]; then
+  exit
+fi
+
 set -euo pipefail
 
 # Script based on https://altinukshini.wordpress.com/2019/01/09/circleci-notifications-in-rocketchat/

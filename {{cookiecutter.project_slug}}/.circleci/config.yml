@@ -123,7 +123,9 @@ jobs:
       - run:
           name: Check if app has a paid plan
           command: |
-            [ "$HAS_PAID_PLAN" != 1 ] && exit 1
+            if [ "$HAS_PAID_PLAN" != 1 ]; then
+              exit 1
+            fi
 
       - run:
           name: set Ruby version

@@ -5858,10 +5858,10 @@ react-native-lightbox@^0.8.1:
   dependencies:
     prop-types "^15.7.2"
 
-react-native-maps@0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.25.0.tgz#81bc51eb50e33811a9e1c345cc48869413ead67d"
-  integrity sha512-PFJuW1pt+HnnnN0m0OGk29RSvICFVkK/DScX6cUk0SuCSN2DAHx0y6y57lZyYXcYqU4J4usNpfxgp/ccjASDiw==
+react-native-maps@0.27.1:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.27.1.tgz#2f10cd417bb2fd938c9e015b1c9b6d9b1a44b97f"
+  integrity sha512-HygBkZBecTnIVRYrSiLRAvu4OmXOYso/A7c6Cy73HkOh9CgGV8Ap5eBea24tvmFGptjj5Hg8AJ94/YbmWK1Okw==
 
 "react-native-parsed-text@git+https://github.com/EvanBacon/react-native-parsed-text.git":
   version "0.0.22"

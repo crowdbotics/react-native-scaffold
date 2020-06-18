@@ -12,7 +12,7 @@
     "preset": "react-native"
   },
   "dependencies": {
-    "@eva-design/eva": "2.0.0",
+    "@eva-design/eva": "^1.4.0",
     "@fortawesome/fontawesome-svg-core": "1.2.22",
     "@fortawesome/free-solid-svg-icons": "5.13.0",
     "@fortawesome/react-native-fontawesome": "0.2.5",
@@ -33,7 +33,7 @@
     "react-native-reanimated": "1.9.0",
     "react-native-screens": "1.0.0-alpha.22",
     "react-native-svg": "9.13.6",
-    "react-native-ui-kitten": "4.3.2",
+    "react-native-ui-kitten": "^4.4.1",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "4.0.10",
     "react-navigation-stack": "1.10.3",

@@ -1,6 +1,5 @@
 import { apiReducer } from "./reducers";
-import { combineReducers } from "redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { rootSaga } from "./sagas";
 
@@ -19,7 +18,7 @@ const store = createStore(
           if (state == null) state = [];
           return state
       }
-  })
+  }),
   composeEnhancers(applyMiddleware(...middlewares))
 );
 

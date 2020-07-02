@@ -2,7 +2,7 @@ import * as types from "./constants"
 
 /* Example get balance actions
 export const getBalance = id => ({
-type: types.API_V1_CUSTOMTEXT_LIST, id
+type: types.GET_BALANCE, id
 })
 
 export const getBalanceSucceeded = response => ({

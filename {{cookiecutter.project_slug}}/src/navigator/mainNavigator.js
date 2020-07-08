@@ -11,12 +11,13 @@ import SideMenu from './sideMenu';
  */
 
 const AppNavigator = {
-    SplashScreen: {
-      screen: SplashScreen
-    },
+
     //@BlueprintNavigationInsertion
 
     /** new navigators can be added here */
+    SplashScreen: {
+      screen: SplashScreen
+    }
 };
 
 const DrawerAppNavigator = createDrawerNavigator(
@@ -24,8 +25,7 @@ const DrawerAppNavigator = createDrawerNavigator(
     ...AppNavigator,
   },
   {
-    contentComponent: SideMenu,
-    initialRouteName: 'SplashScreen',
+    contentComponent: SideMenu
   },
 );
 

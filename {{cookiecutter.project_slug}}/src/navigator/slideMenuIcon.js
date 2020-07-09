@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-ui-kitten';
 
 export class SlideMenuIcon extends React.Component {

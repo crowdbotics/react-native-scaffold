@@ -4,7 +4,7 @@ import {ApplicationProvider, Layout, Text, IconRegistry} from 'react-native-ui-k
 import {Provider as ReduxProvider} from 'react-redux';
 
 import SplashScreen from './src/features/SplashScreen';
-import {store} from './src/redux/store';
+import {store} from './src/store';
 import NavigatorProvider from './src/navigator/mainNavigator';
 import {setupHttpConfig} from './src/utils/http';
 import {crowdboticsTheme} from './src/config/crowdboticsTheme';

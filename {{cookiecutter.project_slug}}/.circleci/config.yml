@@ -87,6 +87,10 @@ jobs:
       #    path: test-results
 
       - run:
+          name: Populate EnvFile
+          command: env >> .env
+
+      - run:
           name: Build and upload to appetize.io
           command: bundle exec fastlane deploy_appetize
           working_directory: android
@@ -178,6 +182,10 @@ jobs:
           key: 1-pods-{{ checksum "ios/Podfile.lock" }}
           paths:
             - ios/Pods
+
+      - run:
+          name: Populate EnvFile
+          command: env >> .env
 
       - run:
           name: Run tests

@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import LogoIcon from "../../assets/images/backgroundLoginV1.png";
 import { installed_blueprints } from "../../config/installed_blueprints";
-import { store } from "../../redux/store";
 import { styles } from './styles'
 
 export default class App extends Component {
@@ -14,10 +13,6 @@ export default class App extends Component {
     title: 'Installed blueprints',
     
   };
-
-  componentDidMount() {
-    store.dispatch({type: 'TEST/ALO'});
-  }
 
   renderItems() {
     const {

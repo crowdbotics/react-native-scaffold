@@ -34,6 +34,10 @@ jobs:
       #    environment:
       #      JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
 
+      - run:
+          name: Populate EnvFile
+          command: bash export.sh
+
       - persist_to_workspace:
           root: ~/build
           paths:
@@ -49,10 +53,6 @@ jobs:
           name: Webhook Failed
           command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
-      
-      - run:
-        name: Populate EnvFile
-        command: bash export.sh
 
   android:
     working_directory: ~/build
@@ -91,6 +91,10 @@ jobs:
       #    path: test-results
 
       - run:
+          name: Populate EnvFile
+          command: bash export.sh
+
+      - run:
           name: Build and upload to appetize.io
           command: bundle exec fastlane deploy_appetize
           working_directory: android
@@ -107,10 +111,6 @@ jobs:
           name: Webhook Failed
           command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
-      
-      - run:
-        name: Populate EnvFile
-        command: bash export.sh
 
   ios:
     macos:
@@ -188,6 +188,10 @@ jobs:
             - ios/Pods
 
       - run:
+          name: Populate EnvFile
+          command: bash export.sh
+
+      - run:
           name: Run tests
           command: bundle exec fastlane tests
           working_directory: ios
@@ -223,10 +227,6 @@ jobs:
           name: Webhook Failed
           command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
-
-      - run:
-        name: Populate EnvFile
-        command: bash export.sh
 
 workflows:
   version: 2

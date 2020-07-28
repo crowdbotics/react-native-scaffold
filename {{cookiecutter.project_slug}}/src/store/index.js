@@ -17,14 +17,8 @@ const middlewares = [sagaMiddleware /** more middlewares if any goes here */];
 
 const store = createStore(
   combineReducers({
-      apiReducer: (state, action) => {
-          if (state == null) state = [];
-          return state
-      },
-      customReducer: (state, action) => {
-          if (state == null) state = [];
-          return state
-      }
+      apiReducer: apiReducer,
+      customReducer: customReducer
   }),
   composeEnhancers(applyMiddleware(...middlewares))
 );

@@ -939,7 +939,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Crowdbotics Corporation (6YKR59QXKM)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6YKR59QXKM;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -969,6 +969,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Crowdbotics Corporation (6YKR59QXKM)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6YKR59QXKM;
 				INFOPLIST_FILE = {{cookiecutter.project_slug}}/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

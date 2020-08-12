@@ -19,7 +19,6 @@ xcuserdata
 DerivedData
 *.hmap
 *.xcuserstate
-project.xcworkspace
 
 # Android/IntelliJ
 #
@@ -38,6 +37,8 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
+*.keystore
+!debug.keystore
 
 # fastlane
 #

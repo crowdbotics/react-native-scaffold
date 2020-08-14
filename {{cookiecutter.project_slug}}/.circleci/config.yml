@@ -99,6 +99,14 @@ jobs:
           path: android/app/build/outputs/apk/release/app-release.apk
 
       - run:
+          name: create a new android app bundle build
+          command: bundle exec fastlane build_aab
+          working_directory: android
+
+      - store_artifacts:
+          path: android/app/build/outputs/bundle/release/app-release.aab
+                
+      - run:
           name: Webhook Success
           command: bash .circleci/webhook_callback.sh "success"
           when: on_success

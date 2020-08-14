@@ -31,6 +31,16 @@ Submit a new Beta Build
 fastlane android deploy
 ```
 Deploy a new version to the Google Play
+### android deploy_appetize
+```
+fastlane android deploy_appetize
+```
+Deployment to Appetize
+### android build_aab
+```
+fastlane android build_aab
+```
+create a new android app bundle build
 
 ----
 

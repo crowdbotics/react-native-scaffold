@@ -34,14 +34,18 @@ platform :ios do
     run_tests(workspace: workspace_name, scheme: base_name, build_for_testing: true)
   end
 
-  desc "Pre-build setup"
-  lane :build_setup do
+  desc "Create app in app store connect"
+  lane :init_app do
     produce(
       app_identifier: identifier,
       app_name: app_name,
       team_name: team_name,
       itc_team_name: team_name
     )
+  end
+
+  desc "Pre-build setup"
+  lane :build_setup do
     increment_build_number(xcodeproj: filename)
     update_app_identifier(
       xcodeproj: filename,
@@ -74,8 +78,10 @@ platform :ios do
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
+    init_app
+
     create_build
-    
+
     upload_to_testflight(
       email: "{{cookiecutter.owner_email}}",
       beta_app_description: "Beta version of #{app_name} uploaded by Crowdbotics"

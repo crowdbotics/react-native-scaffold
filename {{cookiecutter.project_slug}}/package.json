@@ -16,7 +16,7 @@
   "dependencies": {
     "@eva-design/eva": "^1.4.0",
     "axios": "0.19.0",
-    "lodash": "4.17.19",
+    "lodash": "4.17.20",
     "moment": "2.27.0",
     "react": "16.11.0",
     "react-native": "0.62.0",
@@ -41,8 +41,8 @@
     "react-native-dotenv": "^0.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
+    "@babel/core": "^7.11.1",
+    "@babel/runtime": "^7.11.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",

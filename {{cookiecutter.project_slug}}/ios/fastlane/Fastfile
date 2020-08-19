@@ -56,8 +56,8 @@ platform :ios do
     )
   end
 
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
+  desc "Create a new beta build to TestFlight"
+  lane :create_build do
     build_setup
 
     settings_to_override = {
@@ -67,8 +67,15 @@ platform :ios do
     build_app(
       scheme: base_name,
       export_method: "app-store",
-      xcargs: settings_to_override
+      xcargs: settings_to_override,
+      output_name: "app-release.ipa"
     )
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    create_build
+    
     upload_to_testflight(
       email: "{{cookiecutter.owner_email}}",
       beta_app_description: "Beta version of #{app_name} uploaded by Crowdbotics"

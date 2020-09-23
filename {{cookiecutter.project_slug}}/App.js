@@ -1,15 +1,12 @@
 import React from 'react';
-import {mapping, dark} from '@eva-design/eva';
-import {ApplicationProvider, Layout, Text, IconRegistry} from 'react-native-ui-kitten';
+import {View, Text, StyleSheet} from 'react-native';
 import {Provider as ReduxProvider} from 'react-redux';
 
 import SplashScreen from './src/features/SplashScreen';
 import {store} from './src/store';
 import NavigatorProvider from './src/navigator/mainNavigator';
 import {setupHttpConfig} from './src/utils/http';
-import {crowdboticsTheme} from './src/config/crowdboticsTheme';
 import * as NavigationService from './src/navigator/NavigationService';
-import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
 export default class App extends React.Component {
   state = {
@@ -39,25 +36,22 @@ export default class App extends React.Component {
   };
 
   renderLoading = () => (
-    <Layout style={[styles.flex]}>
+    <View style={[styles.flex]}>
       <Text>Loading</Text>
-    </Layout>
+    </View>
   );
 
   renderApp = () => (
     <ReduxProvider store={store}>
-      <IconRegistry icons={EvaIconsPack}/>
-      <ApplicationProvider mapping={mapping} theme={crowdboticsTheme}>
-        <NavigatorProvider
-          style={[styles.flex]}
-          ref={nav => {
-            this.navigator = nav;
-          }}>
-          <Layout style={[styles.flex]}>
-            <SplashScreen />
-          </Layout>
-        </NavigatorProvider>
-      </ApplicationProvider>
+      <NavigatorProvider
+        style={styles.flex}
+        ref={(nav) => {
+          this.navigator = nav;
+        }}>
+        <View style={[styles.flex]}>
+          <SplashScreen />
+        </View>
+      </NavigatorProvider>
     </ReduxProvider>
   );
 
@@ -65,4 +59,6 @@ export default class App extends React.Component {
     this.state.isLoaded ? this.renderApp() : this.renderLoading();
 }
 
-const styles = {flex: {flex: 1}};
+const styles = StyleSheet.create({
+  flex: {flex: 1},
+});

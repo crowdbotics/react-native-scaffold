@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
-import {Icon} from 'react-native-ui-kitten';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 export class SlideMenuIcon extends React.Component {
   toggleDrawer = () => {
@@ -12,8 +13,9 @@ export class SlideMenuIcon extends React.Component {
       <View style={styles.container}>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           <Icon
-            name="menu-outline"
+            name="bars"
             style={styles.icon}
+            size={25}
           />
         </TouchableOpacity>
       </View>
@@ -26,8 +28,6 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   icon:{
-    width: 25, 
-    height: 25, 
     marginLeft: 5
   }
 });

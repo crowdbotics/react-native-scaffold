@@ -39,7 +39,6 @@ buck-out/
 \.buckd/
 *.keystore
 !debug.keystore
-!upload-key.keystore
 
 # fastlane
 #

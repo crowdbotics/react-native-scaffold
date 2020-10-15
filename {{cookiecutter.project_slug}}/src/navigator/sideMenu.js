@@ -1,24 +1,24 @@
 import React from 'react';
 import {
-  TouchableHighlight,
+  TouchableOpacity,
   View,
   ScrollView,
   Image,
   Platform,
   StyleSheet,
+  Text,
 } from 'react-native';
-import {Text, withStyles} from 'react-native-ui-kitten';
 import {installed_blueprints} from '../config/installed_blueprints';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-class _SideMenu extends React.Component {
+export default class SideMenu extends React.Component {
   onMenuItemPressed = item => {
     this.props.navigation.navigate(item.access_route);
   };
 
   renderIcon = () => (
     <Image
-      style={this.props.themedStyle.icon}
+      style={styles.icon}
       source={require('../assets/images/smallLogo.png')}
     />
   );
@@ -26,39 +26,38 @@ class _SideMenu extends React.Component {
   renderMenu = () => installed_blueprints.map(this.renderMenuItem);
 
   renderMenuItem = item => (
-    <TouchableHighlight
-      style={this.props.themedStyle.container}
+    <TouchableOpacity
+      style={styles.container}
       key={`${item.name}--blueprint-button`}
       activeOpacity={1}
       onPress={() => this.onMenuItemPressed(item)}>
-      <View style={this.props.themedStyle.content}>
-        <View style={this.props.themedStyle.content}>
+      <View style={styles.content}>
+        <View style={styles.content}>
           <Icon
-            style={this.props.themedStyle.icon}
+            style={styles.icon}
             name={item.icon_name ? item.icon_name : 'pencil-square-o'}
             size={24}
             color="#F88087"
           />
-          <Text category="s1" style={this.props.themedStyle.text}>
+          <Text category="s1" style={styles.text}>
             {item.human_name}
           </Text>
         </View>
-        <Icon
-         
-          name="chevron-right"
-          size={24}
-          color="#F88087"
-        />
+        <Icon name="chevron-right" size={24} color="#F88087" />
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 
   render = () => (
-    <View style={this.props.themedStyle.root}>
+    <View style={styles.root}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={[this.props.themedStyle.container, this.props.themedStyle.content]}>
+        <View
+          style={[
+            styles.container,
+            styles.content,
+          ]}>
           {this.renderIcon()}
-          <Text category="h6" style={this.props.themedStyle.text}>
+          <Text category="h6" style={styles.text}>
             Crowdbotics
           </Text>
         </View>
@@ -68,16 +67,16 @@ class _SideMenu extends React.Component {
   );
 }
 
-export default SideMenu = withStyles(_SideMenu, theme => ({
+const styles = StyleSheet.create({
   container: {
     height: 80,
     paddingHorizontal: 16,
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderColor: theme['color-basic-400'],
+    borderColor: '#e4e9f2',
   },
   root: {
     paddingTop: Platform.OS === 'ios' ? 20 : 0,
-    backgroundColor: theme['color-basic-400'],
+    backgroundColor: '#e4e9f2',
   },
   content: {
     flex: 1,
@@ -88,6 +87,6 @@ export default SideMenu = withStyles(_SideMenu, theme => ({
     marginRight: 13,
   },
   text: {
-    color: theme['color-basic-1000'],
+    color: '#151a30',
   },
-}));
+});

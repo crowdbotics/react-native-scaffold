@@ -12,7 +12,7 @@ Install _fastlane_ using
 ```
 [sudo] gem install fastlane -NV
 ```
-or alternatively using `brew cask install fastlane`
+or alternatively using `brew install fastlane`
 
 # Available Actions
 ## Android
@@ -31,6 +31,16 @@ Submit a new Beta Build
 fastlane android deploy
 ```
 Deploy a new version to the Google Play
+### android deploy_appetize
+```
+fastlane android deploy_appetize
+```
+Deployment to Appetize
+### android build_aab
+```
+fastlane android build_aab
+```
+create a new android app bundle build
 
 ----
 

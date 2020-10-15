@@ -91,6 +91,13 @@ jobs:
           command: env >> .env
 
       - run:
+          name: Add upload-key.keystore file
+          working_directory: android
+          command:  |
+            cd app
+            echo "$ANDROID_KEYSTORE" | base64 --decode > upload-key.keystore
+
+      - run:
           name: Build and upload to appetize.io
           command: bundle exec fastlane deploy_appetize
           working_directory: android
@@ -98,6 +105,14 @@ jobs:
       - store_artifacts:
           path: android/app/build/outputs/apk/release/app-release.apk
 
+      - run:
+          name: create a new android app bundle build
+          command: bundle exec fastlane build_aab
+          working_directory: android
+
+      - store_artifacts:
+          path: android/app/build/outputs/bundle/release/app-release.aab
+                
       - run:
           name: Webhook Success
           command: bash .circleci/webhook_callback.sh "success"

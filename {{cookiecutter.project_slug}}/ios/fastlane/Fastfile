@@ -52,7 +52,7 @@ platform :ios do
     match(type: "appstore", readonly: false)
     disable_automatic_code_signing(
       path: filename,
-      code_sign_identity: "iPhone Distribution: #{team_name} (#{team_id})"
+      code_sign_identity: "Apple Distribution: #{team_name} (#{team_id})"
     )
   end
 

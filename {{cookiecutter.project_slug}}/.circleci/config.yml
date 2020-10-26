@@ -230,6 +230,14 @@ jobs:
           path: /tmp/fastlane_build/app.zip
 
       - run:
+          name: Create a new beta build for TestFlight
+          command: bundle exec fastlane create_build
+          working_directory: ios
+
+      - store_artifacts:
+          path: ios/app-release.ipa
+
+      - run:
           name: Webhook Success
           command: bash .circleci/webhook_callback.sh "success"
           when: on_success

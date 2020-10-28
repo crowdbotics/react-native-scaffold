@@ -12,36 +12,40 @@
 # Opt out of sending fastlane usage metrics
 opt_out_usage
 
-fastlane_require 'httparty'
-
-base_name = "{{cookiecutter.project_slug}}"
+fastlane_require('httparty')
 
 default_platform(:android)
 
-platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
+base_name = '{{cookiecutter.project_slug}}'
+
+platform(:android) do
+
+  desc('Runs all the tests')
+  lane(:test) do
+    gradle(task: 'test')
   end
 
-  desc "Submit a new Beta Build"
-  lane :beta do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store(track: "beta")
+  desc('Submit a new Beta Build')
+  lane(:beta) do
+    gradle(task: 'clean assembleRelease')
+
+    upload_to_play_store(track: 'beta')
 
     # sh "your_script.sh"
     # You can also use other beta testing services here
   end
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    upload_to_play_store(track: "beta", track_promote_to: "production")
+  desc('Deploy a new version to the Google Play')
+  lane(:deploy) do
+    upload_to_play_store(track: 'beta', track_promote_to: 'production')
   end
 
-  desc "Deployment to Appetize"
-  lane :deploy_appetize do
-    gradle(task: "assemble", build_type: "Release")
-    public_key = get_appetize_public_key("android", base_name)
+  desc('Deployment to Appetize')
+  lane(:deploy_appetize) do
+    gradle(task: 'assemble', build_type: 'Release')
+
+    public_key = get_appetize_public_key('android', base_name)
+
     appetize(
       path: get_last_apk_path,
       public_key: public_key,
@@ -56,20 +60,20 @@ platform :android do
     )
   end
 
-  desc "create a new android app bundle build"
-  lane :build_aab do
+  desc('create a new android app bundle build')
+  lane(:build_aab) do
     increment_version_code(
-      gradle_file_path: "app/build.gradle"
+      gradle_file_path: 'app/build.gradle'
     )
 
-    gradle(task: "bundleRelease")
+    gradle(task: 'bundleRelease')
   end
 
   # Update app URL in CB app DB
-  private_lane :update_url do |options|
+  private_lane(:update_url) do |options|
     url = "https://#{ENV['WEBHOOK_HOSTNAME']}/api/v2/apps/#{ENV['PROJECT_ID']}/metadata-webhook/"
     data = {
-      provider: "circleci",
+      provider: 'circleci',
       metadata: {
         appetize: {
           options[:platform] => {
@@ -80,11 +84,12 @@ platform :android do
       }
     }
     headers = {
-      "Authorization": "Api-Key #{ENV['WEBHOOK_API_KEY']}",
-      "Content-Type": "application/json"
+      'Authorization': "Api-Key #{ENV['WEBHOOK_API_KEY']}",
+      'Content-Type': 'application/json'
     }
+
     response = HTTParty.post(url, body: data.to_json, headers: headers)
-    puts "API response: #{response.code} #{response.body}"
+    puts("API response: #{response.code} #{response.body}")
 
     response.success?
   end
@@ -94,24 +99,21 @@ end
 def get_appetize_public_key(platform, base_name)
   return ENV['APPETIZE_PUBLIC_KEY'] unless ENV['APPETIZE_PUBLIC_KEY'].nil?
 
-  response = HTTParty.get("https://#{ENV['APPETIZE_API_TOKEN']}@api.appetize.io/v1/apps")
+  response =
+    HTTParty.get("https://#{ENV['APPETIZE_API_TOKEN']}@api.appetize.io/v1/apps")
 
-  if response.success?
-    json = JSON.parse(response.body)
+  return nil unless response.success?
 
-    # Find branch name in notes
-    json["data"].each do |value|
-      if value["note"] == base_name && value["platform"] == platform
-        return value["publicKey"]
-      end
-    end
+  item = JSON.parse(response.body)["data"].find do |app_app|
+    app_app['note'] == base_name && app_app['platform'] == platform
   end
 
-  nil
+  item['publicKey']
 end
 
 def get_last_apk_path
   last_apk_path = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
-  puts "last_apk_path: #{last_apk_path}"
+  puts("last_apk_path: #{last_apk_path}")
+
   last_apk_path
 end

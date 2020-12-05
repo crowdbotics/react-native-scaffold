@@ -103,7 +103,7 @@ def get_appetize_public_key(platform, base_name)
 
   return nil unless response.success?
 
-  item = JSON.parse(response.body)["data"].find do |app_app|
+  item = JSON.parse(response.body)['data'].find do |app_app|
     app_app['note'] == base_name && app_app['platform'] == platform
   end
 

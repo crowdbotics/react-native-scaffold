@@ -160,9 +160,8 @@ platform(:ios) do
 end
 
 def get_appetize_public_key(platform, base_name)
-  @appetize_key ||= ENV['APPETIZE_PUBLIC_KEY']
-  @appetize_key ||= fetch_appetize_public_key(platform, base_name)
-  @appetize_key
+  appetize_key = ENV['APPETIZE_PUBLIC_KEY']
+  appetize_key ||= fetch_appetize_public_key(platform, base_name)
 end
 
 def fetch_appetize_public_key(platform, base_name)

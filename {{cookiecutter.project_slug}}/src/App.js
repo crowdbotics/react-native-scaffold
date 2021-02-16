@@ -43,16 +43,7 @@ export default class App extends React.Component {
 
   renderApp = () => (
     <ReduxProvider store={store}>
-      <NavigatorProvider
-        style={styles.flex}
-        ref={nav => {
-          this.navigator = nav
-        }}
-      >
-        <View style={[styles.flex]}>
-          <SplashScreen />
-        </View>
-      </NavigatorProvider>
+      <NavigatorProvider />
     </ReduxProvider>
   )
 

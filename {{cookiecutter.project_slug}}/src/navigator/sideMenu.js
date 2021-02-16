@@ -18,8 +18,9 @@ export default class SideMenu extends React.Component {
 
   renderIcon = () => (
     <Image
-      style={styles.icon}
+      style={styles.logo}
       source={require("../assets/images/smallLogo.png")}
+      resizeMode="contain"
     />
   )
 
@@ -54,9 +55,7 @@ export default class SideMenu extends React.Component {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container, styles.content]}>
           {this.renderIcon()}
-          <Text category="h6" style={styles.text}>
-            Crowdbotics
-          </Text>
+          <Text style={styles.logoText}>Crowdbotics</Text>
         </View>
         {this.renderMenu()}
       </ScrollView>
@@ -85,5 +84,14 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#151a30"
+  },
+  logo: {
+    marginRight: 5,
+    width: 32,
+    height: 32
+  },
+  logoText: {
+    color: "#151a30",
+    fontSize: 20
   }
 })

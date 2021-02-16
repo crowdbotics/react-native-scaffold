@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 
 export class SlideMenuIcon extends React.Component {
   toggleDrawer = () => {
-    this.props.navigationProps.toggleDrawer()
+    this.props.navigation.toggleDrawer()
   }
 
   render() {

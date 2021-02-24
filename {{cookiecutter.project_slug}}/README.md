@@ -98,3 +98,16 @@ New CB developers should get access to the codesigning repo and run `bundle exec
 Not a CB developer? Create an [Apple developer](https://developer.apple.com)
 and follow the instructions on [codesigning guide](https://codesigning.guide/)
 to setup your certificates.
+
+## React Native Web 
+
+It is to build and deploy your app as web platform which run on browser
+
+Please follow the steps
+
+- please run `yarn web-build`
+- the web_build folder is generated and copied to backend/ automatically. please commit/push the web_build folder to git
+
+### Known Issue
+- the icons is not rendering properly for web app. It will come in next release. 
+    - To do it yourself, you can update webpack config to handle ttf files using url-loader (or file-loader) so that icons can be injected to CSS/stylesheet and showed on web

@@ -10,7 +10,7 @@ export default function* rootSaga() {
   ]
   yield all(
     sagas.map(saga =>
-      spawn(function* () {
+      spawn(function*() {
         while (true) {
           try {
             yield call(saga)

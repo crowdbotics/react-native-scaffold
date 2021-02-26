@@ -29,7 +29,7 @@ export default function* customRootSaga() {
   ]
   yield all(
     sagas.map(saga =>
-      spawn(function* () {
+      spawn(function*() {
         while (true) {
           try {
             yield call(saga)

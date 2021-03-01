@@ -24,8 +24,8 @@ function* getBalanceWatcher() {
 // https://redux-saga.js.org/docs/advanced/RootSaga.html
 export default function* customRootSaga() {
   const sagas = [
-      // Example watcher
-      // getBalanceWatcher
+    // Example watcher
+    // getBalanceWatcher
   ]
   yield all(
     sagas.map(saga =>

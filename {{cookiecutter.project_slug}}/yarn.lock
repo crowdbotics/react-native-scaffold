@@ -12157,10 +12157,10 @@ react-native-gesture-handler@^1.10.1:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-image-picker@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-1.1.0.tgz#c2a0523886edb4cf2cdc008ad0a71433142a4d53"
-  integrity sha512-/KjHf4NNAjl6XM7FQuqvGDz1wB9sRdLf86+2yksLW/QTRR7CitX4TLCM8ZF9CX6Y0MsCTndkZia3zWE+nt/GiA==
+react-native-image-picker@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-4.0.4.tgz#4b09d644d9ad7afaedc82db650522dca6bbefc5c"
+  integrity sha512-MR1okWbIQg38ZtD9QT2kCu6kZez9h92JKhGi0VLT/f5fXhwk+piBKxVbLhKdFx6+ofS0d4+gT4GaYauHSkG4Lw==
 
 react-native-iphone-x-helper@^1.0.3:
   version "1.2.1"

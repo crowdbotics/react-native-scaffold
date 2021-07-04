@@ -29,7 +29,7 @@
     "react-native": "0.62.0",
     "react-native-datepicker": "^1.7.2",
     "react-native-debugger-open": "0.3.24",
-    "react-native-dotenv": "^0.2.0",
+    "react-native-dotenv": "^3.0.0",
     "react-native-elements": "^2.3.2",
     "react-native-fix-image": "^2.1.0",
     "react-native-gesture-handler": "^1.10.1",

@@ -20,8 +20,9 @@
 ## Contents
 
 - [Custom React Native template](/scaffold/template/custom)
-- [Documentation](https://docs.crowdbotics.com)
 - [Changelog](/CHANGELOG.md)
+- [Documentation](https://docs.crowdbotics.com)
+- [All commands](https://docs.crowdbotics.com/modules-commands)
 
 ## Requirements for contributing
 

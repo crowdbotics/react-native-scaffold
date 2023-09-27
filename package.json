@@ -1,0 +1,39 @@
+{
+  "name": "react-native-scaffold",
+  "version": "1.0.0",
+  "description": "React Native Scaffold",
+  "main": "index.js",
+  "bin": {
+    "react-native-scaffold": "./index.js"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">16.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
+    "inquirer": "^9.2.0",
+    "js-yaml": "^4.1.0",
+    "fast-xml-parser": "^4.2.5",
+    "prettier": "^2.6.2"
+  },
+  "resolutions": {
+    "shell-quote": "1.7.3"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "5.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.30.0",
+    "react-native": "0.71.7"
+  }
+}

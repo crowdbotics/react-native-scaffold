@@ -50,12 +50,6 @@ Install python packages:
 pipenv install
 ```
 
-Spin a demo app using the customized React Native template:
-
-```sh
-yarn run demo
-```
-
 Make changes to the scaffold and regenerate distribution artifacts:
 
 ```sh

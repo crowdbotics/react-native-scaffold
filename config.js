@@ -6,12 +6,6 @@ const RAW_DISTRIBUTION_DIRECTORY = path.join("dist", "raw");
 const COOKIE_DISTRIBUTION_DIRECTORY = path.join("dist", "cookie");
 
 export default {
-  constants: {
-    CROWDBOTICS_FILE: ".crowdbotics.json",
-    COOKIECUTTER_PACKAGE: "cookiecutter==1.7.3",
-    REACT_NATIVE_SCAFFOLD_REPO_ORIGIN:
-      "https://github.com/crowdbotics/react-native-scaffold.git"
-  },
   scaffold: {
     directory: SCAFFOLD_DIRECTORY
   },

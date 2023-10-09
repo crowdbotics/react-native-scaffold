@@ -1,0 +1,44 @@
+{
+  "name": "react-native-scaffold",
+  "version": "1.0.0",
+  "description": "React Native Scaffold",
+  "type": "module",
+  "engines": {
+    "node": ">16.0"
+  },
+  "scripts": {
+    "semver": "node scripts/semver.js",
+    "cookie": "node scripts/cookie.js",
+    "raw": "node scripts/raw.js",
+    "template": "node scripts/template.js",
+    "bootstrap": "npm run raw; npm run cookie",
+    "lint": "yarn run eslint scripts"
+  },
+  "author": "crowdbotics",
+  "dependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/generator": "^7.14.9",
+    "@babel/parser": "^7.18.8",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/template": "^7.16.7",
+    "@babel/types": "^7.18.8",
+    "fs-extra": "^10.1.0",
+    "js-yaml": "^4.1.0",
+    "fast-xml-parser": "^4.2.5",
+    "prettier": "^2.6.2"
+  },
+  "resolutions": {
+    "shell-quote": "1.7.3"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "5.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.30.0",
+    "react-native": "0.71.7"
+  }
+}

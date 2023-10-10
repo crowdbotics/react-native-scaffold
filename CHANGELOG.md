@@ -2,6 +2,12 @@
 
 Based on [Common Changelog](https://common-changelog.org/).
 
+## 2.5.0 - 2023-10-10
+
+### Added
+
+- added `@components` alias - better support for composition
+
 ## 2.4.0 - 2023-07-17
 
 ### Changed

@@ -2,6 +2,12 @@
 
 Based on [Common Changelog](https://common-changelog.org/).
 
+## 2.5.1 - 2023-11-02
+
+### Fixed
+
+- added `@store` alias to `metro.config.js`- this alias was missing
+
 ## 2.5.0 - 2023-10-10
 
 ### Added

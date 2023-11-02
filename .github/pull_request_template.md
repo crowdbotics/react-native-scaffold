@@ -12,7 +12,7 @@ _Related PRs:_
 
 Did you make changes to the scaffold?
 
-- [ ] Yes, and I have read the [scaffold checklist](https://crowdbotics.github.io/modules/scaffold-checklist.html) document and followed the instructions.
+- [ ] Yes, and have read the [scaffold updates checklist](https://github.com/crowdbotics/react-native-scaffold/#scaffold-updates-checklist) documentation and followed the instructions.
 - [ ] No.
 
 ## Changes introduced

@@ -4,18 +4,21 @@
  *
  * @format
  */
-
 const path = require("path")
+
 const extraNodeModules = {
+  "@components": path.resolve(__dirname, "components"),
   "@modules": path.resolve(__dirname, "modules"),
   "@screens": path.resolve(__dirname, "screens"),
   "@options": path.resolve(__dirname, "options")
 }
+
 const watchFolders = [
   path.resolve(__dirname, "modules"),
   path.resolve(__dirname, "screens"),
   path.resolve(__dirname, "options")
 ]
+
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({

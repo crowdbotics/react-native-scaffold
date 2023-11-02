@@ -10,13 +10,16 @@ const extraNodeModules = {
   "@components": path.resolve(__dirname, "components"),
   "@modules": path.resolve(__dirname, "modules"),
   "@screens": path.resolve(__dirname, "screens"),
-  "@options": path.resolve(__dirname, "options")
+  "@options": path.resolve(__dirname, "options"),
+  "@store": path.resolve(__dirname, "store")
 }
 
 const watchFolders = [
+  path.resolve(__dirname, "components"),
   path.resolve(__dirname, "modules"),
   path.resolve(__dirname, "screens"),
-  path.resolve(__dirname, "options")
+  path.resolve(__dirname, "options"),
+  path.resolve(__dirname, "store")
 ]
 
 module.exports = {

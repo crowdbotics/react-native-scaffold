@@ -143,7 +143,8 @@ module.exports = {
       "@screens": path.resolve(appDirectory, "screens"),
       "@options": path.resolve(appDirectory, "options"),
       "@store": path.resolve(appDirectory, "store"),
-      "@components": path.resolve(appDirectory, "components")
+      "@components": path.resolve(appDirectory, "components"),
+      "@helpers": path.resolve(appDirectory, "helpers")
     },
     // If you're working on a multi-platform React Native app, web-specific
     // module implementations should be written in files using the extension

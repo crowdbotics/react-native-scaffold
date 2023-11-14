@@ -20,6 +20,7 @@ fs.renameSync(path.join(customFiles, "modules"), path.join(cwd, "modules"));
 fs.renameSync(path.join(customFiles, "screens"), path.join(cwd, "screens"));
 fs.renameSync(path.join(customFiles, "options"), path.join(cwd, "options"));
 fs.renameSync(path.join(customFiles, "store"), path.join(cwd, "store"));
+fs.renameSync(path.join(customFiles, "helpers"), path.join(cwd, "helpers"));
 fs.renameSync(path.join(customFiles, "public"), path.join(cwd, "public"));
 
 // CircleCI

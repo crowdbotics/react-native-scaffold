@@ -2,6 +2,16 @@
 
 Based on [Common Changelog](https://common-changelog.org/).
 
+## 2.6.0 - 2023-11-14
+
+### Added
+
+Added new `helpers` directory and `@helpers` alias on `webpack.config.js` and `metro.config.js`.
+
+The `index.js` includes two new helper hooks for building responsive designs:
+- `useComponentLayout` - custom hook for the `onLayout` prop callback - useful for measuring individual elements on resize
+- `useMatchMedia` - custom hook that abstracts the `window.matchMedia` Web API
+
 ## 2.5.2 - 2023-11-02
 
 ### Fixed

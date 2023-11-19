@@ -26,7 +26,7 @@
     "fs-extra": "^10.1.0",
     "js-yaml": "^4.1.0",
     "fast-xml-parser": "^4.2.5",
-    "prettier": "^2.6.2"
+    "prettier": "^3.1.0"
   },
   "resolutions": {
     "shell-quote": "1.7.3"

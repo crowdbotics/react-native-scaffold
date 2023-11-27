@@ -2,6 +2,12 @@
 
 Based on [Common Changelog](https://common-changelog.org/).
 
+## 2.6.1 - 2023-11-23
+
+### Fixed
+
+Removed unused `package.json` files on sub-directories. Those had illegal names such as `@modules` that prevented running `yarn add <library>` on a module directory.
+
 ## 2.6.0 - 2023-11-14
 
 ### Added

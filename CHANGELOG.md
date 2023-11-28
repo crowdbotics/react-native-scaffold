@@ -2,6 +2,12 @@
 
 Based on [Common Changelog](https://common-changelog.org/).
 
+## 2.6.2 - 2023-11-28
+
+### Fixed
+
+Prevent the root `yarn.lock` file from being gitignored (negate pattern).
+
 ## 2.6.1 - 2023-11-23
 
 ### Fixed

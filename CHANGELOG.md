@@ -2,6 +2,23 @@
 
 Based on [Common Changelog](https://common-changelog.org/).
 
+## 2.6.3 - 2024-01-18
+
+### Fixed
+
+Fixed the issue preventing imports from aliased directories from working.
+
+Example:
+```js
+import { something } from "@components/some-component";
+```
+
+Would error out with:
+>error: Error: Unable to resolve module @components/some-component from /home/user/your-project/file.js: @components/some-component could not be found within the project or in these directories:
+>  node_modules
+>  ../node_modules
+>  ../../../../node_modules
+
 ## 2.6.2 - 2023-11-28
 
 ### Fixed

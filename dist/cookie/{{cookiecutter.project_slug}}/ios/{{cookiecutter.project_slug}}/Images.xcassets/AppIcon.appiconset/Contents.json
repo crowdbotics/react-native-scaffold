@@ -115,14 +115,14 @@
             "filename":"Icon-App-83.5x83.5@2x.png"
         },
         {
-          "size" : "1024x1024",
-          "idiom" : "ios-marketing",
-          "scale" : "1x",
-          "filename" : "ItunesArtwork@2x.png"
+            "size" : "1024x1024",
+            "idiom" : "ios-marketing",
+            "scale" : "1x",
+            "filename" : "ItunesArtwork@2x.png"
         }
     ],
     "info":{
         "version":1,
-        "author":"makeappicon"
+        "author":"easyappicon"
     }
 }

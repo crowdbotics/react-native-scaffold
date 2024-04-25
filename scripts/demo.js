@@ -21,8 +21,7 @@ removeDir(demoPath);
 
 const rnCookieCutterCommand = [
   "pipenv run cookiecutter",
-  "gh:crowdbotics/react-native-scaffold",
-  "--directory dist/cookie",
+  "./dist/cookie",
   "--checkout master",
   `--config-file ${yaml}`,
   "--no-input"
@@ -30,6 +29,6 @@ const rnCookieCutterCommand = [
 
 execSync(rnCookieCutterCommand, options);
 
-execSync(`zip -r ./dist/react-native-demo.zip ${demoPath}`, options);
+execSync(`cd ${demoPath} && zip -r ../dist/react-native-demo.zip .`, options);
 
 removeDir(demoPath);

@@ -22,7 +22,6 @@ removeDir(demoPath);
 const rnCookieCutterCommand = [
   "pipenv run cookiecutter",
   "./dist/cookie",
-  "--checkout master",
   `--config-file ${yaml}`,
   "--no-input"
 ].join(" ");

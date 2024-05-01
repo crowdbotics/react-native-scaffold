@@ -9,6 +9,7 @@
   "scripts": {
     "semver": "node scripts/semver.js",
     "cookie": "node scripts/cookie.js",
+    "demo": "node scripts/demo.js",
     "raw": "node scripts/raw.js",
     "template": "node scripts/template.js",
     "bootstrap": "npm run raw; npm run cookie",

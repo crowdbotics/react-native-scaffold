@@ -69,7 +69,6 @@ jobs:
     environment:
       - TERM: "dumb"
       - ADB_INSTALL_TIMEOUT: 10
-      - _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport"
       - GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-XX:+HeapDumpOnOutOfMemoryError"'
       - BUILD_THREADS: 2
     steps:
@@ -124,7 +123,6 @@ jobs:
     environment:
       - TERM: "dumb"
       - ADB_INSTALL_TIMEOUT: 10
-      - _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport"
       - GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-XX:+HeapDumpOnOutOfMemoryError"'
       - BUILD_THREADS: 2
     steps:

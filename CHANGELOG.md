@@ -2,6 +2,12 @@
 
 Based on [Common Changelog](https://common-changelog.org/).
 
+## 2.7.4 - 2024-10-02
+
+### Changed
+
+Updated CircleCI build pipeline to use updated Xcode and resource_class for Mac M1
+
 ## 2.6.3 - 2024-01-18
 
 ### Fixed
